@@ -1,0 +1,3 @@
+kubernetes:
+  api:
+    endpoint: http://localhost:8090

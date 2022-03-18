@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Your Training Portals</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body cds-text="body" cds-theme="dark">
+    <div th:insert="fragments/layout :: app-container(~{ :: #content})">
+        <div id="content" cds-layout="grid cols@sm:3 p:md gap:md">
+            <cds-card th:each="trainingPortal: ${trainingPortals}">
+                <div cds-layout="vertical gap:md">
+                    <h2 cds-text="section" th:text="${trainingPortal.name}">Card Title</h2>
+
+                    <cds-divider cds-card-remove-margin></cds-divider>
+
+                    <div cds-text="body light">
+                        Expires: <span th:text="${trainingPortal.expires}">2021-01-01</span>
+                    </div>
+                    <div cds-text="body light" th:if="${trainingPortal.url}">
+                        <a href="#" th:href="${trainingPortal.url}"><cds-button action="flat-inline">Portal Page</cds-button></span>
+                    </div>
+
+                    <cds-divider cds-card-remove-margin></cds-divider>
+
+                    <div cds-layout="horizontal gap:sm align:vertical-center">
+                        <a href="#"
+                            th:href="@{/trainingportals/{trainingPortal}(trainingPortal = ${trainingPortal.name})}">
+                            <cds-button action="outline" size="sm">View</cds-button>
+                        </a>
+                        <form action="delete.html"
+                            th:action="@{/trainingportals/{trainingPortal}(trainingPortal = ${trainingPortal.name})}"
+                            th:object="${trainingPortal}" th:method="delete">
+                            <cds-button type="submit" action="outline" size="sm" status="danger">Expire</cds-button>
+                        </form>
+                    </div>
+                </div>
+            </cds-card>
+            <cds-card th:if="${#arrays.isEmpty(trainingPortals)}">
+                <div cds-layout="vertical gap:md">
+                    <h2 cds-text="section">Create New Workshop</h2>
+
+                    <cds-divider cds-card-remove-margin></cds-divider>
+
+                    <div cds-text="body light">
+                        Create a new workshop for your needs
+                    </div>
+
+                    <cds-divider cds-card-remove-margin></cds-divider>
+
+                    <div cds-layout="horizontal gap:sm align:vertical-center">
+                        <a href="new.html" th:href="@{/trainingportals/new}">
+                            <cds-button action="outline" size="sm">Create</cds-button>
+                        </a>
+                    </div>
+                </div>
+            </cds-card>
+        </div>
+    </div>
+</body>
+<script type="module">
+    import ''/index.js'';
+</script>
+
+</html>

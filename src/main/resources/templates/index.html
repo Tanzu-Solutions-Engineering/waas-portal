@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body cds-text="body" cds-theme="dark">
+    <div cds-layout="vertical">
+        <!-- <cds-alert-group type="banner" status="info">
+            <cds-alert closable>
+                <em>Single line alert:</em> This alert example has only a single line of text.
+            </cds-alert>
+        </cds-alert-group> -->
+        <header cds-layout="horizontal p:sm align:vertical-center" class="header">
+            <cds-icon shape="node-group" size="lg"></cds-icon>
+            <span cds-text="title">Workshops as a Service</span>
+        </header>
+    <div cds-layout="horizontal wrap:none" class="content-container">
+        <cds-navigation expanded>
+            <cds-navigation-item>
+                <span>
+                    <cds-icon shape="grid-view"></cds-icon>
+                    My Workshops
+                </span>
+            </cds-navigation-item>
+        </cds-navigation>
+            <div cds-layout="grid cols@sm:3 p:md gap:md">
+                <cds-card>
+                    <div cds-layout="vertical gap:md" aria-labelledby="{id}">
+                    <h2 id="{id}" cds-text="section">Card Title</h2>
+                
+                    <cds-divider cds-card-remove-margin></cds-divider>
+                
+                    <div cds-text="body light">Card Content</div>
+                
+                    <cds-divider cds-card-remove-margin></cds-divider>
+                
+                    <div cds-layout="horizontal gap:sm align:vertical-center">
+                        <cds-button action="flat-inline">View</cds-button>
+                    </div>
+                    </div>
+                </cds-card>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module">
+    import ''/index.js'';
+</script>   
+</html>
