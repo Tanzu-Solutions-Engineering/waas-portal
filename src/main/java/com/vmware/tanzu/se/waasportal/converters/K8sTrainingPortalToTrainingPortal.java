@@ -1,6 +1,8 @@
 package com.vmware.tanzu.se.waasportal.converters;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortal;
@@ -16,10 +18,11 @@ public class K8sTrainingPortalToTrainingPortal
 
     @Override
     public TrainingPortal convert(V1beta1TrainingPortal from) {
-
+      ZoneId zone = ZoneId.of(from.getMetadata().getAnnotations().get("waas/timezone"));
       TrainingPortalBuilder trainingPortal = TrainingPortal.builder()
         .name(from.getMetadata().getName())
-        .expires(Instant.parse(from.getMetadata().getAnnotations().get("janitor/expires")))
+        .zone(zone)
+        .expires(LocalDateTime.ofInstant(Instant.parse(from.getMetadata().getAnnotations().get("janitor/expires")), zone))
         .owner(String.format("%s@%s", 
             from.getMetadata().getAnnotations().get("waas/owner-email-prefix"),
             from.getMetadata().getAnnotations().get("waas/owner-email-domain")

@@ -1,18 +1,21 @@
 package com.vmware.tanzu.se.waasportal.model;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class TrainingPortal {
     
     private String name;
-    private Instant expires;
+    private LocalDateTime expires;
+    private ZoneId zone;
     private String owner;
     private String url;
     private String workshops[];
 
-    TrainingPortal(String name, Instant expires, String owner, String url, String workshops[]) {
+    TrainingPortal(String name, LocalDateTime expires, ZoneId zone, String owner, String url, String workshops[]) {
         this.name = name;
         this.expires = expires;
+        this.zone = zone;
         this.owner = owner;
         this.url = url;
         this.workshops = workshops;
@@ -26,12 +29,20 @@ public class TrainingPortal {
         this.name = name;
     }
 
-    public Instant getExpires() {
+    public LocalDateTime getExpires() {
         return expires;
     }
 
-    public void setExpires(Instant expires) {
+    public void setExpires(LocalDateTime expires) {
         this.expires = expires;
+    }
+
+    public ZoneId getZone() {
+        return zone;
+    }
+
+    public void setZone(ZoneId zone) {
+        this.zone = zone;
     }
 
     public String getOwner() {
@@ -64,7 +75,8 @@ public class TrainingPortal {
 
     public static class TrainingPortalBuilder {
         private String name;
-        private Instant expires;
+        private LocalDateTime expires;
+        private ZoneId zone;
         private String owner;
         private String url;
         private String workshops[];
@@ -76,10 +88,16 @@ public class TrainingPortal {
             return this;
         }
 
-        public TrainingPortalBuilder expires(Instant expires) {
+        public TrainingPortalBuilder expires(LocalDateTime expires) {
             this.expires = expires;
             return this;
         }
+
+        public TrainingPortalBuilder zone(ZoneId zone) {
+            this.zone = zone;
+            return this;
+        }
+
 
         public TrainingPortalBuilder owner(String owner) {
             this.owner = owner;
@@ -97,7 +115,7 @@ public class TrainingPortal {
         }
   
         public TrainingPortal build() {
-            return new TrainingPortal(name, expires, owner, url, workshops);
+            return new TrainingPortal(name, expires, zone, owner, url, workshops);
         }
     }
 }

@@ -11,7 +11,6 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 
 import static java.util.Map.entry;
 
-import java.util.Collections;
 import java.util.Map;    
 
 public class TrainingPortalToK8sTrainingPortal
@@ -26,7 +25,10 @@ public class TrainingPortalToK8sTrainingPortal
       V1ObjectMeta metadata = new V1ObjectMeta();
       metadata.setName(from.getName());
       String ownerEmail[] = from.getOwner().split("@");
-      metadata.setAnnotations(Collections.singletonMap("janitor/expires", from.getExpires().toString()));
+      metadata.setAnnotations(Map.ofEntries(
+        entry("janitor/expires", from.getExpires().atZone(from.getZone()).toInstant().toString()),
+        entry("waas/timezone", from.getZone().toString())
+      ));
       metadata.setLabels(Map.ofEntries(
         entry("waas/owner-email-prefix", ownerEmail[0]),
         entry("waas/owner-email-domain", ownerEmail[1])

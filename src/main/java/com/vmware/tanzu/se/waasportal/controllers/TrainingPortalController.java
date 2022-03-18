@@ -1,6 +1,5 @@
 package com.vmware.tanzu.se.waasportal.controllers;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -77,7 +76,8 @@ public class TrainingPortalController {
         trainingPortalService.save(
             TrainingPortal.builder()
             .name(name)
-            .expires(expires.toInstant(zone.getRules().getOffset(Instant.now())))
+            .expires(expires)
+            .zone(zone)
             .owner(authentication.getPrincipal().getAttribute("email"))
             .workshops(workshops)
             .build()

@@ -21,6 +21,9 @@
                     <div cds-text="body light" th:if="${trainingPortal.url}">
                         <a href="#" th:href="${trainingPortal.url}"><cds-button action="flat-inline">Portal Page</cds-button></span>
                     </div>
+                    <div cds-text="body light" th:unless="${trainingPortal.url}">
+                        Portal provisioning...
+                    </div>
 
                     <cds-divider cds-card-remove-margin></cds-divider>
 
