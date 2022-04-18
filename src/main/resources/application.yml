@@ -3,13 +3,6 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-''
 management:
   server:
     port: 8090

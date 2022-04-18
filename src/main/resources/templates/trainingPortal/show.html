@@ -1,12 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title th:text="${trainingPortal.name}">ACME Co. Training</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<head>
+  <title th:text="|${trainingPortal.name} Portal Details|">foobar Portal Details</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
-  <a href="#" th:href="${trainingPortal.url}"><h1 th:text="${trainingPortal.name}">ACME Co. Training</h1></a>
-  <p>Expires: <span th:text="${trainingPortal.expires}">2095-01-23T20:54:12Z</span></p>
-  </ul>
+
+<body cds-text="body" cds-theme="dark">
+  <div th:insert="fragments/layout :: app-container(~{ :: #content})">
+    <div id="content">
+      <h1 th:text="${trainingPortal.name}">ACME Co. Training</h1>
+      <a href="#" th:href="${trainingPortal.url}">
+        <cds-button action="flat-inline">Portal Page</cds-button>
+      </a>
+      <p>Expires: <span th:text="${trainingPortal.expires}">2095-01-23T20:54:12Z</span> <span
+          th:text="${trainingPortal.zone}">America/New_York</span></p>
+      <p>Workshops:
+      <ul>
+        <li th:each="workshop: ${trainingPortal.workshops}" th:text="${workshop}">A workshop</li>
+      </ul>
+      </p>
+    </div>
 </body>
+<script type="module">
+  import ''/index.js'';
+</script>
 </html>

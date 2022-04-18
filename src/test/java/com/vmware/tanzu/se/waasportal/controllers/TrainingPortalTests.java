@@ -1,14 +1,21 @@
 package com.vmware.tanzu.se.waasportal.controllers;
 
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.arrayWithSize;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasItemInArray;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,6 +24,7 @@ import java.util.Map;
 
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal;
 import com.vmware.tanzu.se.waasportal.service.TrainingPortalService;
+import com.vmware.tanzu.se.waasportal.service.WorkshopService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,15 +60,18 @@ public class TrainingPortalTests {
     @MockBean
     private TrainingPortalService service;
 
+    @MockBean
+    private WorkshopService workshopService;
+
     @Test
     public void emptyTrainingPortalList() throws Exception {
         when(service.getTrainingPortalsForUser("test@user.com")).thenReturn(new TrainingPortal[]{});
         this.mockMvc.perform(
                 get("/trainingportals")
                 .with(authentication(getOauthAuthenticationFor(principal))))
-            .andDo(print())
             .andExpect(status().isOk())
-            .andExpect(content().json("[]"));
+            .andExpect(model().attribute("trainingPortals", arrayWithSize(0)));
+
     }
 
     @Test
@@ -72,22 +83,27 @@ public class TrainingPortalTests {
 
     @Test
     public void userHasTrainingPortals() throws Exception {
-        Instant expiry = Instant.now().plus(1, ChronoUnit.DAYS);
+        LocalDateTime expiry = LocalDateTime.now().plus(1, ChronoUnit.DAYS);
+        ZoneId zone = ZoneId.of("America/New_York");
         when(service.getTrainingPortalsForUser("test@user.com")).thenReturn(
             new TrainingPortal[]{
                 TrainingPortal.builder()
                     .name("Test")
                     .expires(expiry)
+                    .zone(zone)
                 .build()
             }
         );
         this.mockMvc.perform(
                 get("/trainingportals")
                 .with(authentication(getOauthAuthenticationFor(principal))))
-            .andDo(print())
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$[0].name").value("Test"))
-            .andExpect(jsonPath("$[0].expiry").value(expiry.toString()));
+            .andExpect(model().attribute("trainingPortals", notNullValue()))
+            .andExpect(model().attribute("trainingPortals", hasItemInArray(allOf(
+                hasProperty("name", equalTo("Test"))
+                , hasProperty("expires", equalTo(expiry))
+                , hasProperty("zone", equalTo(zone))
+            ))));
     }
 
     public static OAuth2User createOAuth2User(String name, String email) {

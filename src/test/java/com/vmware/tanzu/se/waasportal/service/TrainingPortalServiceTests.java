@@ -10,6 +10,8 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Map;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
@@ -56,7 +58,8 @@ public class TrainingPortalServiceTests {
                                 "kind": "TrainingPortal",
                                 "metadata": {
                                     "annotations": {
-                                        "janitor/expires": "2520-01-17T15:14:38Z"
+                                        "janitor/expires": "2520-01-17T15:14:38Z",
+                                        "waas/timezone": "America/New_York"
                                     },
                                     "labels": {
                                         "waas/owner-email-prefix": "cdelashmutt",
@@ -64,7 +67,9 @@ public class TrainingPortalServiceTests {
                                     },
                                     "name": "test"
                                 },
-                                "spec": {}
+                                "spec": {
+                                    "workshops": []
+                                }
                             }                            
                         ]
                     }
@@ -113,7 +118,8 @@ public class TrainingPortalServiceTests {
         assertThat(portals, is(notNullValue()));
         assertThat(portals.length, is(1));
         assertThat(portals[0].getName(), is("test"));
-        assertThat(portals[0].getExpires(), is(Instant.parse("2520-01-17T15:14:38Z")));
+        assertThat(portals[0].getExpires(), is(LocalDateTime.ofInstant(Instant.parse("2520-01-17T15:14:38Z"), ZoneId.of("America/New_York"))));
+        assertThat(portals[0].getZone(), is(ZoneId.of("America/New_York")));
 
     }
 
