@@ -1,11 +1,11 @@
-import resolve from ''rollup-plugin-node-resolve'';
+import resolve from "rollup-plugin-node-resolve";
 import styles from "rollup-plugin-styles";
 
 export default {
-	input: ''src/main/js/index.js'',
+	input: "../js/index.js",
 	output: {
-	  file: ''target/classes/static/index.js'',
-	  format: ''esm''
+	  file: "../../../target/classes/static/index.js",
+	  format: "esm"
 	},
 	plugins: [
 		resolve({
