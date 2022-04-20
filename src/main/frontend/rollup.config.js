@@ -13,7 +13,11 @@ export default {
 			main: true,
 			browser: true
 		  }),
-			styles(),
+			styles({
+				sass: {
+					includePaths: ["node_modules"]
+				}
+			}),
       //scss(),
       //postcss(),
 	]
