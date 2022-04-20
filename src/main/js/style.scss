@@ -1,7 +1,7 @@
-@import "~modern-normalize/modern-normalize"; // css reset
-@import "~@cds/core/global.min"; // clarity global styles
-@import "~@cds/city/css/bundles/default.min"; // load base font
-@import "~@cds/core/styles/theme.dark.min";
+@import "../frontend/node_modules/modern-normalize/modern-normalize"; // css reset
+@import "../frontend/node_modules/@cds/core/global.min"; // clarity global styles
+@import "../frontend/node_modules/@cds/city/css/bundles/default.min"; // load base font
+@import "../frontend/node_modules/@cds/core/styles/theme.dark.min";
 
 .content-container {
   height: 100%;
