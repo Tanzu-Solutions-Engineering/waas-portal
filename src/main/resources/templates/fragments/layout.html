@@ -13,13 +13,13 @@
       </header>
     <div cds-layout="horizontal wrap:none" class="content-container">
       <cds-navigation expanded>
-          <cds-navigation-item th:active="(${view} == "index")? "index" : _">
+          <cds-navigation-item th:active="(${view} == 'index')? 'index' : _">
               <a href="#" th:href="@{/trainingportals}">
                   <cds-icon shape="grid-view"></cds-icon>
                   My Workshops
               </a>
           </cds-navigation-item>
-          <cds-navigation-item th:active="(${view} == "new")? "new" : _">
+          <cds-navigation-item th:active="(${view} == 'new')? 'new' : _">
             <a href="#" th:href="@{/trainingportals/new}">
                 <cds-icon shape="plus-circle"></cds-icon>
                 New Workshop
