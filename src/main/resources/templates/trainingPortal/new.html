@@ -35,8 +35,8 @@
             </select>
           </cds-select>
           <div cds-layout="horizontal gap:lg align:center">
-            <cds-button type="button" action="outline" size="icon" onclick="moveSelectedValues(document.getElementById(''availableWorkshops''), document.getElementById(''workshops''))">⬇</cds-button>
-            <cds-button type="button" action="outline" size="icon" onclick="moveSelectedValues(document.getElementById(''workshops''), document.getElementById(''availableWorkshops''))">⬆</cds-button>
+            <cds-button type="button" action="outline" size="icon" onclick="moveSelectedValues(document.getElementById("availableWorkshops"), document.getElementById("workshops"))">⬇</cds-button>
+            <cds-button type="button" action="outline" size="icon" onclick="moveSelectedValues(document.getElementById("workshops"), document.getElementById("availableWorkshops"))">⬆</cds-button>
           </div>
           <cds-select>
             <label>Selected Workshops</label>
@@ -51,18 +51,18 @@
   </div>
 </body>
 <script type="module">
-  import ''/index.js'';
+  import "/index.js";
 </script>
 <script>
 //14 days from now
 const futureDate = new Date(Date.now() + (86400000*14));
 
-document.getElementById(''expires'').value = futureDate.getFullYear().toString() + "-" +
+document.getElementById("expires").value = futureDate.getFullYear().toString() + "-" +
   ("0"+(futureDate.getMonth()+1)).slice(-2) + "-" +
   ("0" + futureDate.getDate()).slice(-2) + "T" +
   ("0" + futureDate.getHours()).slice(-2) + ":" + ("0" + futureDate.getMinutes()).slice(-2);
 
-document.getElementById(''zone'').value=Intl.DateTimeFormat().resolvedOptions().timeZone;
+document.getElementById("zone").value=Intl.DateTimeFormat().resolvedOptions().timeZone;
 function moveSelectedValues(from, to) {
   var options = from && from.options;
   var opt;
@@ -85,7 +85,7 @@ function moveSelectedValues(from, to) {
 }
 
 function selectWorkshops() {
-  var options = document.getElementById(''workshops'').options
+  var options = document.getElementById("workshops").options
 
   for (var i=0, iLen=options.length; i<iLen; i++) {
     opt = options[i];
