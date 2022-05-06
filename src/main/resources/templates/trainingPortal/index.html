@@ -4,9 +4,12 @@
 <head>
     <title>Your Training Portals</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="module">
+        import "/index.js";
+    </script>
 </head>
 
-<body cds-text="body" cds-theme="dark">
+<body cds-text="body" cds-theme="dark" style="background-color: #1B2A33;">
     <div th:insert="fragments/layout :: app-container(~{ :: #content})">
         <div id="content" cds-layout="grid cols@sm:3 p:md gap:md">
             <cds-card th:each="trainingPortal: ${trainingPortals}">
@@ -62,8 +65,4 @@
         </div>
     </div>
 </body>
-<script type="module">
-    import "/index.js";
-</script>
-
 </html>

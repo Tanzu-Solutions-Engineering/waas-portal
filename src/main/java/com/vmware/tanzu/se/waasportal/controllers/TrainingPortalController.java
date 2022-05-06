@@ -38,19 +38,22 @@ public class TrainingPortalController {
 
     @GetMapping
     public String index(OAuth2AuthenticationToken authentication, Model model) {
+        model.addAttribute("username", authentication.getPrincipal().getAttribute("email"));
         model.addAttribute("view", "index");
         model.addAttribute("trainingPortals", trainingPortalService.getTrainingPortalsForUser(authentication.getPrincipal().getAttribute("email")));
         return "trainingPortal/index";
     }
 
     @GetMapping("/{name}")
-    public String show(@PathVariable String name, Model model) {
+    public String show(OAuth2AuthenticationToken authentication, @PathVariable String name, Model model) {
+        model.addAttribute("username", authentication.getPrincipal().getAttribute("email"));
         model.addAttribute("trainingPortal", trainingPortalService.getTrainingPortal(name));
         return "trainingPortal/show";
     }
 
     @GetMapping("/new")
     public String newForm(OAuth2AuthenticationToken authentication, Model model) {
+        model.addAttribute("username", authentication.getPrincipal().getAttribute("email"));
         model.addAttribute("view", "new");
 
         String user = ((String)authentication.getPrincipal().getAttribute("email")).split("@")[0];

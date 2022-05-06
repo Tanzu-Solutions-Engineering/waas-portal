@@ -3,8 +3,11 @@
 <head> 
     <title>New Training Portal</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="module">
+      import "/index.js";
+    </script>
 </head>
-<body cds-text="body" cds-theme="dark">
+<body cds-text="body" cds-theme="dark" style="background-color: #1B2A33;">
   <div th:insert="fragments/layout :: app-container(~{ :: #content})">
 
     <div id="content" cds-layout="p:md">
@@ -50,9 +53,6 @@
 
   </div>
 </body>
-<script type="module">
-  import "/index.js";
-</script>
 <script>
 //14 days from now
 const futureDate = new Date(Date.now() + (86400000*14));
