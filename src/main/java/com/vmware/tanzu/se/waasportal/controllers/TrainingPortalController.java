@@ -71,7 +71,7 @@ public class TrainingPortalController {
     public String create(OAuth2AuthenticationToken authentication, 
         @RequestParam ZoneId zone,
         String name,
-        @DateTimeFormat(pattern = "yyyy-MM-dd''T''HH:mm")
+        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
         LocalDateTime expires,
         @RequestParam String workshops[]
         ) {
