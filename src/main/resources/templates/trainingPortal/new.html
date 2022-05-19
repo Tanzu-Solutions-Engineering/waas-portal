@@ -54,8 +54,8 @@
   </div>
 </body>
 <script>
-//14 days from now
-const futureDate = new Date(Date.now() + (86400000*14));
+//1 days from now
+const futureDate = new Date(Date.now() + 86400000);
 
 document.getElementById("expires").value = futureDate.getFullYear().toString() + "-" +
   ("0"+(futureDate.getMonth()+1)).slice(-2) + "-" +
