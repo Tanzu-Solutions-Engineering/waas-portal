@@ -3,6 +3,14 @@
 @import "../frontend/node_modules/@cds/city/css/bundles/default.min"; // load base font
 @import "../frontend/node_modules/@cds/core/styles/theme.dark.min";
 
+.root-layout {
+  height: 100vh;
+}
+
+.nav {
+  height: 100%;
+}
+
 .content-container {
   height: 100%;
 }

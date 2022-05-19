@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <div cds-layout="vertical" th:fragment="app-container(content)">
-      <!-- <cds-alert-group type="banner" status="info">
+
+<body>
+  <div cds-layout="vertical" th:fragment="app-container(content)" class="root-layout">
+    <!-- <cds-alert-group type="banner" status="info">
           <cds-alert closable>
               <em>Single line alert:</em> This alert example has only a single line of text.
           </cds-alert>
       </cds-alert-group> -->
-      <header cds-layout="horizontal p:sm align:vertical-center" class="header">
-          <cds-icon shape="node-group" size="lg"></cds-icon>
-          <span cds-text="title">Workshops as a Service</span>
-          <div cds-layout="align:right" th:text="${username}">Not signed in</div>
-      </header>
+    <header cds-layout="horizontal p:sm align:vertical-center" class="header">
+      <cds-icon shape="node-group" size="lg"></cds-icon>
+      <span cds-text="title">Workshops as a Service</span>
+      <div cds-layout="align:right" th:text="${username}">Not signed in</div>
+    </header>
     <div cds-layout="horizontal wrap:none" class="content-container">
-      <cds-navigation expanded>
+      <div cds-layout="vertical gap:md align:vertical-stretch" class="nav">
+        <cds-navigation expanded>
           <cds-navigation-item th:active="(${view} == 'index')? 'index' : _">
-              <a href="#" th:href="@{/trainingportals}">
-                  <cds-icon shape="grid-view"></cds-icon>
-                  My Workshops
-              </a>
+            <a href="#" th:href="@{/trainingportals}">
+              <cds-icon shape="grid-view"></cds-icon>
+              My Workshops
+            </a>
           </cds-navigation-item>
           <cds-navigation-item th:active="(${view} == 'new')? 'new' : _">
             <a href="#" th:href="@{/trainingportals/new}">
-                <cds-icon shape="plus-circle"></cds-icon>
-                New Workshop
+              <cds-icon shape="plus-circle"></cds-icon>
+              New Workshop
             </a>
-        </cds-navigation-item>
-    </cds-navigation>
-      <div th:replace="${content}"></div>
+          </cds-navigation-item>
+        </cds-navigation>
+        <div cds-layout="align:shrink">
+          <a href="https://vmware.slack.com/archives/C03FZMQRZE2" target="_blank">
+            <cds-button action="flat-inline">#Slack</cds-button>
+          </a>
+        </div>
       </div>
+      <div th:replace="${content}"></div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

@@ -15,3 +15,4 @@ import "../frontend/node_modules/@cds/core/input/register.js";
 import "../frontend/node_modules/@cds/core/forms/register.js"
 import "../frontend/node_modules/@cds/core/datalist/register.js";
 import "../frontend/node_modules/@cds/core/select/register.js";
+import '../frontend/node_modules/@cds/core/divider/register.js';
