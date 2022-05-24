@@ -4,11 +4,16 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortal;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpec;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecEnv;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecWorkshops;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal;
+import com.vmware.tanzu.se.waasportal.model.TrainingPortalWorkshop;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal.TrainingPortalBuilder;
 
 import org.springframework.core.convert.converter.Converter;
@@ -32,11 +37,26 @@ public class K8sTrainingPortalToTrainingPortal
 
       V1beta1TrainingPortalSpec spec = from.getSpec();
       if(spec != null) {
-        ArrayList<String> workshops = new ArrayList<String>();
+        ArrayList<TrainingPortalWorkshop> workshops = new ArrayList<TrainingPortalWorkshop>();
         for(V1beta1TrainingPortalSpecWorkshops workshop : spec.getWorkshops()){
-          workshops.add(workshop.getName());
+          List<V1beta1TrainingPortalSpecEnv> envList = workshop.getEnv();
+          Map<String, String> envMap = new HashMap<>();
+          if(envList != null) {
+            for(V1beta1TrainingPortalSpecEnv env : workshop.getEnv()) {
+              envMap.put(env.getName(), env.getValue());
+            }
+          }
+          workshops.add(TrainingPortalWorkshop.builder()
+            .name(workshop.getName())
+            .capacity(workshop.getCapacity())
+            .env(envMap)
+            .expires(workshop.getExpires())
+            .initial(workshop.getInitial())
+            .orphaned(workshop.getOrphaned())
+            .reserved(workshop.getReserved())
+            .build());
         }
-        trainingPortal.workshops(workshops.toArray(new String[workshops.size()]));
+        trainingPortal.workshops(workshops.toArray(new TrainingPortalWorkshop[workshops.size()]));
       }
 
       return trainingPortal.build();

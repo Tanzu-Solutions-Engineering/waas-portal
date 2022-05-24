@@ -19,7 +19,8 @@
                     <cds-divider cds-card-remove-margin></cds-divider>
 
                     <div cds-text="body light">
-                        Expires: <span th:text="${trainingPortal.expires}">2021-01-01</span>
+                        <em>Expires:</em> <span th:text="${#temporals.format(trainingPortal.expires, 'yyyy-MM-dd HH:mm')}">2021-01-01 23:12</span> <span
+                        th:text="${trainingPortal.zone}">America/New_York</span>
                     </div>
                     <div cds-text="body light" th:if="${trainingPortal.url}">
                         <a href="#" th:href="${trainingPortal.url}"><cds-button action="flat-inline">Portal Page</cds-button></span>

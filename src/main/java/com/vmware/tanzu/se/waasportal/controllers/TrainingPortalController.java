@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal;
+import com.vmware.tanzu.se.waasportal.model.TrainingPortalWorkshop;
 import com.vmware.tanzu.se.waasportal.service.TrainingPortalService;
 import com.vmware.tanzu.se.waasportal.service.WorkshopService;
 
@@ -76,13 +77,19 @@ public class TrainingPortalController {
         @RequestParam String workshops[]
         ) {
         
+        TrainingPortalWorkshop workshopArr[] = new TrainingPortalWorkshop[workshops.length];
+        for(int i = 0; i < workshops.length; i++) {
+            workshopArr[i] = TrainingPortalWorkshop.builder()
+                .name(workshops[i])
+                .build();
+        }
         trainingPortalService.save(
             TrainingPortal.builder()
             .name(name)
             .expires(expires)
             .zone(zone)
             .owner(authentication.getPrincipal().getAttribute("email"))
-            .workshops(workshops)
+            .workshops(workshopArr)
             .build()
         );
         return String.format("redirect:/trainingportals");

@@ -4,6 +4,7 @@ import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortal;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpec;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecWorkshops;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal;
+import com.vmware.tanzu.se.waasportal.model.TrainingPortalWorkshop;
 
 import org.springframework.core.convert.converter.Converter;
 
@@ -36,10 +37,10 @@ public class TrainingPortalToK8sTrainingPortal
       converted.setMetadata(metadata);
 
       V1beta1TrainingPortalSpec spec = new V1beta1TrainingPortalSpec();
-      for( String workshop : from.getWorkshops()) {
+      for( TrainingPortalWorkshop workshop : from.getWorkshops()) {
         V1beta1TrainingPortalSpecWorkshops workshopsItem = new V1beta1TrainingPortalSpecWorkshops();
         spec.addWorkshopsItem(
-          workshopsItem.name(workshop)
+          workshopsItem.name(workshop.getName())
             .capacity(20)
             .reserved(2)
             .orphaned("20m")

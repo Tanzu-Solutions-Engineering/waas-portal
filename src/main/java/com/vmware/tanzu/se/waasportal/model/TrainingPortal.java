@@ -10,9 +10,9 @@ public class TrainingPortal {
     private ZoneId zone;
     private String owner;
     private String url;
-    private String workshops[];
+    private TrainingPortalWorkshop workshops[];
 
-    TrainingPortal(String name, LocalDateTime expires, ZoneId zone, String owner, String url, String workshops[]) {
+    TrainingPortal(String name, LocalDateTime expires, ZoneId zone, String owner, String url, TrainingPortalWorkshop workshops[]) {
         this.name = name;
         this.expires = expires;
         this.zone = zone;
@@ -61,11 +61,11 @@ public class TrainingPortal {
         this.url = url;
     }
 
-    public String[] getWorkshops() {
+    public TrainingPortalWorkshop[] getWorkshops() {
         return workshops;
     }
 
-    public void setWorkshops(String[] workshops) {
+    public void setWorkshops(TrainingPortalWorkshop[] workshops) {
         this.workshops = workshops;
     }
 
@@ -79,7 +79,7 @@ public class TrainingPortal {
         private ZoneId zone;
         private String owner;
         private String url;
-        private String workshops[];
+        private TrainingPortalWorkshop workshops[];
 
         TrainingPortalBuilder(){}
 
@@ -109,7 +109,7 @@ public class TrainingPortal {
             return this;
         }
 
-        public TrainingPortalBuilder workshops(String[] workshops) {
+        public TrainingPortalBuilder workshops(TrainingPortalWorkshop[] workshops) {
             this.workshops=workshops;
             return this;
         }

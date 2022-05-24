@@ -11,18 +11,53 @@
 
 <body cds-text="body" cds-theme="dark">
   <div th:insert="fragments/layout :: app-container(~{ :: #content})">
-    <div id="content">
+    <div id="content" cds-layout="p:md">
       <h1 th:text="${trainingPortal.name}">ACME Co. Training</h1>
       <a href="#" th:href="${trainingPortal.url}">
         <cds-button action="flat-inline">Portal Page</cds-button>
       </a>
-      <p>Expires: <span th:text="${trainingPortal.expires}">2095-01-23T20:54:12Z</span> <span
+      <p><label cds-text="secondary inline bold">Expires:</label> <span th:text="${#temporals.format(trainingPortal.expires, 'yyyy-MM-dd HH:mm')}">2095-01-23 20:54</span> <span
           th:text="${trainingPortal.zone}">America/New_York</span></p>
-      <p>Workshops:
-      <ul>
-        <li th:each="workshop: ${trainingPortal.workshops}" th:text="${workshop}">A workshop</li>
-      </ul>
-      </p>
+      <div cds-layout="grid cols@sm:3 p:md gap:md">
+        <cds-card th:each="workshop: ${trainingPortal.workshops}">
+          <div cds-layout="vertical gap:md">
+            <h2 cds-text="section" th:text="${workshop.name}">A Great Workshop</h2>
+
+            <cds-divider cds-card-remove-margin></cds-divider>
+
+            <div cds-text="body light">
+              <label cds-text="secondary inline bold">Capacity:</label> <span th:text="${workshop.capacity}">999</span>
+            </div>
+            <div cds-text="body light">
+              <label cds-text="secondary inline bold">Initial:</label> <span th:text="${workshop.initial}">999</span>
+            </div>
+            <div cds-text="body light">
+              <label cds-text="secondary inline bold">Reserved:</label> <span th:text="${workshop.reserved}">999</span>
+            </div>
+            <div cds-text="body light">
+              <label cds-text="secondary inline bold">Expires:</label> <span th:text="${workshop.expires}">999m</span>
+            </div>
+            <div cds-text="body light">
+              <label cds-text="secondary inline bold">Orphaned:</label> <span th:text="${workshop.expires}">999m</span>
+            </div>
+            <div cds-text="body light" th:unless="${#maps.isEmpty(workshop.env)}">
+              <label cds-text="secondary inline bold">Environment:</label>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                <tr th:each="env: ${workshop.env}">
+                  <td th:text="${env.key}">A name</td>
+                  <td th:text="${env.value}">A value</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </cds-card>
+      </div>
+
     </div>
 </body>
+
 </html>
