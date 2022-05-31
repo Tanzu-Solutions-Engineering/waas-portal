@@ -2,6 +2,9 @@
 @import "../frontend/node_modules/@cds/core/global.min"; // clarity global styles
 @import "../frontend/node_modules/@cds/city/css/bundles/default.min"; // load base font
 @import "../frontend/node_modules/@cds/core/styles/theme.dark.min";
+@import "../frontend/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "../frontend/node_modules/@fortawesome/fontawesome-free/css/brands.css";
+@import "../frontend/node_modules/@fortawesome/fontawesome-free/css/solid.css";
 
 .root-layout {
   height: 100vh;

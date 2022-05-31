@@ -14,7 +14,7 @@
       <div cds-layout="align:right" th:text="${username}">Not signed in</div>
     </header>
     <div cds-layout="horizontal wrap:none" class="content-container">
-      <div cds-layout="vertical gap:md align:vertical-stretch" class="nav">
+      <div cds-layout="vertical align:vertical-stretch" class="nav">
         <cds-navigation expanded>
           <cds-navigation-item th:active="(${view} == 'index')? 'index' : _">
             <a href="#" th:href="@{/trainingportals}">
@@ -29,10 +29,18 @@
             </a>
           </cds-navigation-item>
         </cds-navigation>
-        <div cds-layout="align:shrink">
-          <a href="https://vmware.slack.com/archives/C03FZMQRZE2" target="_blank">
-            <cds-button action="flat-inline">#Slack</cds-button>
-          </a>
+        <div cds-layout="align:shrink p:md">
+          <div cds-layout="horizontal gap:md">
+            <a href="https://vmware.slack.com/archives/C03FZMQRZE2" target="_blank">
+              <cds-button action="flat-inline"><i class="fa-brands fa-slack fa-2xl"></i></cds-button>
+            </a>
+            <a href="https://github.com/Tanzu-Solutions-Engineering/waas-portal" target="_blank">
+              <cds-button action="flat-inline"><i class="fa-brands fa-github fa-2xl"></i></cds-button>
+            </a>
+<!--            <a href="" target="_blank">
+              <cds-button action="flat-inline"><i class="fa-solid fa-book fa-2xl"></i></cds-button>
+            </a>
+-->          </div>
         </div>
       </div>
       <div th:replace="${content}"></div>

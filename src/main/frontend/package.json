@@ -1,11 +1,12 @@
 {
 	"dependencies": {
 		"@cds/city": "^1.1.0",
-		"@cds/core": "^5.6.4"
+		"@cds/core": "^5.6.4",
+		"@fortawesome/fontawesome-free": "^6.1.1"
 	},
 	"devDependencies": {
-		"rollup": "^2.60.2",
 		"@rollup/plugin-node-resolve": "^13.2.1",
+		"rollup": "^2.60.2",
 		"rollup-plugin-postcss": "^4.0.2",
 		"rollup-plugin-styles": "^4.0.0",
 		"sass": "^1.49.9"
