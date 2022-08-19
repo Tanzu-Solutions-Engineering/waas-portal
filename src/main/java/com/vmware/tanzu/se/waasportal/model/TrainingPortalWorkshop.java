@@ -86,13 +86,13 @@ public class TrainingPortalWorkshop {
   }
 
   public static class TrainingPortalWorkshopBuilder {
-    Integer capacity;
+    Integer capacity = 20;
     Map<String, String> env;
-    String expires;
+    String expires = "60m";
     Integer initial;
     String name;
-    String orphaned;
-    Integer reserved;
+    String orphaned = "20m";
+    Integer reserved = 2;
 
     TrainingPortalWorkshopBuilder() {
     }

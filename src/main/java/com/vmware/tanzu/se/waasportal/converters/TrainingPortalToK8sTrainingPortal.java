@@ -17,6 +17,11 @@ import java.util.Map;
 public class TrainingPortalToK8sTrainingPortal
   implements Converter<TrainingPortal, V1beta1TrainingPortal> {
 
+    public static final String OWNER_EMAIL_DOMAIN_ANNOTATION = "waas/owner-email-domain";
+    public static final String OWNER_EMAIL_PREFIX_ANNOTATION = "waas/owner-email-prefix";
+    public static final String EXPIRY_ANNOTATION = "janitor/expires";
+    public static final String EXPIRY_TIMEZONE_ANNOTATION = "waas/timezone";
+
     @Override
     public V1beta1TrainingPortal convert(TrainingPortal from) {
       V1beta1TrainingPortal converted = new V1beta1TrainingPortal();
@@ -27,12 +32,12 @@ public class TrainingPortalToK8sTrainingPortal
       metadata.setName(from.getName());
       String ownerEmail[] = from.getOwner().split("@");
       metadata.setAnnotations(Map.ofEntries(
-        entry("janitor/expires", from.getExpires().atZone(from.getZone()).toInstant().toString()),
-        entry("waas/timezone", from.getZone().toString())
+        entry(EXPIRY_ANNOTATION, from.getExpires().atZone(from.getZone()).toInstant().toString()),
+        entry(EXPIRY_TIMEZONE_ANNOTATION, from.getZone().toString())
       ));
       metadata.setLabels(Map.ofEntries(
-        entry("waas/owner-email-prefix", ownerEmail[0]),
-        entry("waas/owner-email-domain", ownerEmail[1])
+        entry(OWNER_EMAIL_PREFIX_ANNOTATION, ownerEmail[0]),
+        entry(OWNER_EMAIL_DOMAIN_ANNOTATION, ownerEmail[1])
       ));
       converted.setMetadata(metadata);
 
@@ -41,10 +46,10 @@ public class TrainingPortalToK8sTrainingPortal
         V1beta1TrainingPortalSpecWorkshops workshopsItem = new V1beta1TrainingPortalSpecWorkshops();
         spec.addWorkshopsItem(
           workshopsItem.name(workshop.getName())
-            .capacity(20)
-            .reserved(2)
-            .orphaned("20m")
-            .expires("60m")
+            .capacity(workshop.getCapacity())
+            .reserved(workshop.getReserved())
+            .orphaned(workshop.getOrphaned())
+            .expires(workshop.getExpires())
         );
       }
       converted.setSpec(spec);

@@ -29,8 +29,8 @@ public class K8sTrainingPortalToTrainingPortal
         .zone(zone)
         .expires(LocalDateTime.ofInstant(Instant.parse(from.getMetadata().getAnnotations().get("janitor/expires")), zone))
         .owner(String.format("%s@%s", 
-            from.getMetadata().getAnnotations().get("waas/owner-email-prefix"),
-            from.getMetadata().getAnnotations().get("waas/owner-email-domain")
+            from.getMetadata().getLabels().get("waas/owner-email-prefix"),
+            from.getMetadata().getLabels().get("waas/owner-email-domain")
           )
         )
         .url(from.getStatus() != null ? from.getStatus().getLearningcenter().getUrl() : null);
