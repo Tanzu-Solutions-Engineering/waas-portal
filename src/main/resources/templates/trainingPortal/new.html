@@ -1,51 +1,142 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-    <title>New Training Portal</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="module">
-      import "/index.js";
-    </script>
+  <title>New Training Portal</title> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script type="module" th:inline="javascript">
+    import {createApp, DurationComponent} from "/index.js";
+
+    const futureDate = new Date(Date.now() + 86400000);
+
+    createApp({
+      components: {
+        DurationComponent
+      },
+      data() {
+        return {
+          workshops: [[${workshops}]],
+          selectedWorkshop: null,
+          removedWorkshops:[],
+          trainingPortal: {
+            name: [[${user +"-workshop"}]],
+            expires: futureDate.getFullYear().toString() + "-" +
+              ("0"+(futureDate.getMonth()+1)).slice(-2) + "-" +
+              ("0" + futureDate.getDate()).slice(-2) + "T" +
+              ("0" + futureDate.getHours()).slice(-2) + ":" + ("0" + futureDate.getMinutes()).slice(-2),
+            zone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            workshops: []
+          }
+        }
+      },
+      methods: {
+        addWorkshop() {
+          let currentIndex=this.trainingPortal.workshops.length;
+          this.trainingPortal.workshops[currentIndex] = {
+            name: this.selectedWorkshop.name,
+            capacity: 20,
+            reserved: 2,
+            expires: "60m",
+            orphaned: "20m"
+          };
+
+          for(let i=0; i < this.workshops.length; i++) {
+            if(this.selectedWorkshop.name == this.workshops[i].name) {
+              this.workshops.splice(i,1);
+              this.removedWorkshops[currentIndex]={originalIndex: i, workshop: this.selectedWorkshop};
+            }
+          }
+
+        },
+        deleteWorkshop(index) {
+          this.trainingPortal.workshops.splice(index, 1);
+          this.workshops.splice(this.removedWorkshops[index].originalIndex, 0, this.removedWorkshops[index].workshop);
+          this.removedWorkshops.splice(index, 1);
+        },
+        submitForm() {
+          fetch('[(@{/trainingportals})]', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-XSRF-TOKEN': '[(${_csrf.token})]',
+            },
+            body: JSON.stringify(this.trainingPortal),
+          })
+            .then((data) => {
+              console.log('Success:', data);
+              window.location = '[(@{/trainingportals})]';
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+      }
+    }).mount('#content')
+  </script>
 </head>
 <body cds-text="body" cds-theme="dark" style="background-color: #1B2A33;">
   <div th:insert="fragments/layout :: app-container(~{ :: #content})">
 
     <div id="content" cds-layout="p:md">
-      <form action="subscribe.html" th:action="@{/trainingportals/create}" method="post" onsubmit="selectWorkshops();">
-        <cds-form-group layout="horizontal">
+      <form v-on:submit.prevent="submitForm">
+        <cds-form-group layout="horizontal-inline" control-width="shrink">
           <cds-input control-width="shrink">
             <label>Name</label>
-            <input type="text" id="name" name="name" th:value="|${user}-workshop|" />
+            <input type="text" id="name" name="name" v-model="trainingPortal.name" />
           </cds-input>
           <cds-input-group layout="horizontal">
             <label>Expires</label>
             <cds-input>
               <label>Local Date & Time</label>
-              <input type="datetime-local" id="expires" name="expires"/>
+              <input type="datetime-local" id="expires" name="expires" v-model="trainingPortal.expires"/>
             </cds-input>
             <cds-datalist layout="horizontal">
               <label>Timezone</label>
-              <input id="zone" name="zone" />
+              <input id="zone" name="zone" v-model="trainingPortal.zone"/>
               <datalist>
                 <option th:each="zoneId: ${zoneIds}" th:value="${zoneId}"></option>
               </datalist>
             </cds-datalist>
           </cds-input-group>
-          <cds-select>
-            <label>Available Workshops</label>
-            <select id="availableWorkshops" multiple>
-              <option th:each="workshop: ${workshops}" th:value="${workshop.name}" th:text="${workshop.title}">Option One</option>
-            </select>
-          </cds-select>
-          <div cds-layout="horizontal gap:lg align:center">
-            <cds-button type="button" action="outline" size="icon" onclick="moveSelectedValues(document.getElementById('availableWorkshops'), document.getElementById('workshops'))">⬇</cds-button>
-            <cds-button type="button" action="outline" size="icon" onclick="moveSelectedValues(document.getElementById('workshops'), document.getElementById('availableWorkshops'))">⬆</cds-button>
+          <div cds-layout="horizontal gap:lg align:vertical-center">
+            <cds-select>
+              <label>Available Workshops</label>
+              <select id="availableWorkshops" v-model="selectedWorkshop">
+                <option v-for="workshop in workshops" v-bind:value="workshop" v-bind:text="workshop.title">Option One</option>
+              </select>
+              <cds-control-message>{{selectedWorkshop?.description}}</cds-control-message>
+            </cds-select>
+            <cds-divider orientation="vertical"></cds-divider>
+            <cds-button type="button" action="flat-inline" @click="addWorkshop">Add</cds-button>
           </div>
-          <cds-select>
-            <label>Selected Workshops</label>
-            <select multiple name="workshops" id="workshops">
-            </select>
-          </cds-select>
+          <div cds-layout="grid cols@sm:3 p:md gap:md">
+            <cds-card v-for="(workshop, index) in trainingPortal.workshops">
+                <div cds-layout="vertical gap:md">
+                    <h2 cds-text="section">{{workshop.name}}</h2>
+
+                    <cds-divider cds-card-remove-margin></cds-divider>
+
+                    <form>
+                      <cds-form-group layout="horizontal-inline" control-width="shrink" validate>
+                        <cds-input control-width="shrink">
+                          <label>Capacity</label>
+                          <input type="number" v-model="workshop.capacity" min="1"/>
+                          <cds-control-message error="rangeUnderflow" hidden="">Must be an integer value greater than 0</cds-control-message>
+                        </cds-input>
+                        <cds-input control-width="shrink">
+                          <label>Reserved</label>
+                          <input type="number" v-model="workshop.reserved" min="0"/>
+                          <cds-control-message error="rangeUnderflow" hidden="">Must be a positive integer value, or 0</cds-control-message>
+                        </cds-input>
+                        <duration-component label="Expiry" v-model="workshop.expires"></duration-component>
+                        <duration-component label="Orphaned" v-model="workshop.orphaned"></duration-component>
+                      </cds-form-group>
+                    </form>
+                    <div cds-layout="horizontal gap:sm align:vertical-center">
+                        <cds-button type="button" action="outline" size="sm" status="danger" @click="deleteWorkshop(index)">Delete</cds-button>
+                    </div>
+                </div>
+            </cds-card>
+          </div>
           <cds-button type="submit">Create</cds-button>
         </cds-form-group>
       </form>
@@ -53,46 +144,4 @@
 
   </div>
 </body>
-<script>
-//1 days from now
-const futureDate = new Date(Date.now() + 86400000);
-
-document.getElementById("expires").value = futureDate.getFullYear().toString() + "-" +
-  ("0"+(futureDate.getMonth()+1)).slice(-2) + "-" +
-  ("0" + futureDate.getDate()).slice(-2) + "T" +
-  ("0" + futureDate.getHours()).slice(-2) + ":" + ("0" + futureDate.getMinutes()).slice(-2);
-
-document.getElementById("zone").value=Intl.DateTimeFormat().resolvedOptions().timeZone;
-function moveSelectedValues(from, to) {
-  var options = from && from.options;
-  var opt;
-  var optsToMove = [];
-
-  for (var i=0, iLen=options.length; i<iLen; i++) {
-    opt = options[i];
-
-    if (opt.selected) {
-      optsToMove.push(opt);
-    }
-  }
-
-  optsToMove.forEach(value => {
-    var newopt = value.cloneNode(true);
-
-    from.removeChild(value);
-    to.appendChild(newopt);
-  });
-}
-
-function selectWorkshops() {
-  var options = document.getElementById("workshops").options
-
-  for (var i=0, iLen=options.length; i<iLen; i++) {
-    opt = options[i];
-    opt.selected=true;
-  }
-
-  return true;
-}
-</script>
 </html>
