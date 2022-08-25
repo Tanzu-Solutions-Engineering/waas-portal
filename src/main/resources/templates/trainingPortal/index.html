@@ -32,13 +32,13 @@
                     <cds-divider cds-card-remove-margin></cds-divider>
 
                     <div cds-layout="horizontal gap:sm align:vertical-center">
-                        <a href="#"
-                            th:href="@{/trainingportals/{trainingPortal}(trainingPortal = ${trainingPortal.name})}">
-                            <cds-button action="outline" size="sm">View</cds-button>
-                        </a>
                         <form action="delete.html"
                             th:action="@{/trainingportals/{trainingPortal}(trainingPortal = ${trainingPortal.name})}"
                             th:object="${trainingPortal}" th:method="delete">
+                            <a href="#"
+                                th:href="@{/trainingportals/{trainingPortal}(trainingPortal = ${trainingPortal.name})}">
+                                <cds-button action="outline" size="sm">View</cds-button>
+                            </a>
                             <cds-button type="submit" action="outline" size="sm" status="danger">Expire</cds-button>
                         </form>
                     </div>
