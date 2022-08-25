@@ -47,9 +47,14 @@
   <div th:insert="fragments/layout :: app-container(~{ :: #content})">
     <div id="content" cds-layout="vertical cols:auto p:md">
       <h1 th:text="${trainingPortal.name}">ACME Co. Training</h1>
-      <a href="#" th:href="${trainingPortal.url}">
-        <cds-button action="flat-inline">Portal Page</cds-button>
-      </a>
+      <div cds-layout="horizontal gap:lg">
+        <a href="#" th:href="${trainingPortal.url}">
+          <cds-button action="flat-inline">Portal Page</cds-button>
+        </a>
+        <a href="#" th:href="${trainingPortal.url} + '/admin'">
+          <cds-button action="flat-inline">Portal Admin Page</cds-button>
+        </a>
+      </div>
       <div cds-layout="grid p:md gap:lg">
         <label cds-text="inline bold" cds-layout="col:1">Expires:</label>
         <div cds-layout="horizontal pd:sm col:11">
