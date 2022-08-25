@@ -4,21 +4,42 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 public class TrainingPortal {
-    
+
     private String name;
     private LocalDateTime expires;
     private ZoneId zone;
     private String owner;
     private String url;
     private TrainingPortalWorkshop workshops[];
+    private String adminUsername;
+    private String adminPassword;
 
-    TrainingPortal(String name, LocalDateTime expires, ZoneId zone, String owner, String url, TrainingPortalWorkshop workshops[]) {
+    public String getAdminUsername() {
+        return adminUsername;
+    }
+
+    public void setAdminUsername(String adminUsername) {
+        this.adminUsername = adminUsername;
+    }
+
+    public String getAdminPassword() {
+        return adminPassword;
+    }
+
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
+    }
+
+    TrainingPortal(String name, LocalDateTime expires, ZoneId zone, String owner, String url,
+            TrainingPortalWorkshop workshops[], String adminUsername, String adminPassword) {
         this.name = name;
         this.expires = expires;
         this.zone = zone;
         this.owner = owner;
         this.url = url;
         this.workshops = workshops;
+        this.adminUsername = adminUsername;
+        this.adminPassword = adminPassword;
     }
 
     public String getName() {
@@ -52,7 +73,7 @@ public class TrainingPortal {
     public void setOwner(String owner) {
         this.owner = owner;
     }
-      
+
     public String getUrl() {
         return url;
     }
@@ -80,8 +101,11 @@ public class TrainingPortal {
         private String owner;
         private String url;
         private TrainingPortalWorkshop workshops[];
-
-        TrainingPortalBuilder(){}
+        private String adminUsername;
+        private String adminPassword;
+    
+        TrainingPortalBuilder() {
+        }
 
         public TrainingPortalBuilder name(String name) {
             this.name = name;
@@ -98,7 +122,6 @@ public class TrainingPortal {
             return this;
         }
 
-
         public TrainingPortalBuilder owner(String owner) {
             this.owner = owner;
             return this;
@@ -110,12 +133,22 @@ public class TrainingPortal {
         }
 
         public TrainingPortalBuilder workshops(TrainingPortalWorkshop[] workshops) {
-            this.workshops=workshops;
+            this.workshops = workshops;
             return this;
         }
-  
+
+        public TrainingPortalBuilder adminUsername(String adminUsername) {
+            this.adminUsername = adminUsername;
+            return this;
+        }
+
+        public TrainingPortalBuilder adminPassword(String adminPassword) {
+            this.adminPassword = adminPassword;
+            return this;
+        }
+
         public TrainingPortal build() {
-            return new TrainingPortal(name, expires, zone, owner, url, workshops);
+            return new TrainingPortal(name, expires, zone, owner, url, workshops, adminUsername, adminPassword);
         }
     }
 }

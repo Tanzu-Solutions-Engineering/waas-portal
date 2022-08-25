@@ -100,17 +100,6 @@ public class ConverterTests {
             reserved: 2
         status:
           learningcenter:
-            clients:
-              robot:
-                id: FAKEID
-                secret: FAKESECRET
-            credentials:
-              admin:
-                password: FAKEPASSWORD
-                username: FAKEUSER
-              robot:
-                password: FAKEPASSWORD2
-                username: FAKEUSER2
             namespace: me-workshop-ui
             phase: Running
             secrets:
@@ -137,6 +126,66 @@ public class ConverterTests {
       assertThat(workshops[0].getReserved(), is(2));
       assertThat(workshops[0].getExpires(), is("60m"));
       assertThat(workshops[0].getOrphaned(), is("20m"));
+  }
+
+  @Test
+  public void convertsK8sObjectWithCredentialsToModel()
+  throws JsonProcessingException {
+    K8sTrainingPortalToTrainingPortal converter = new K8sTrainingPortalToTrainingPortal();
+    
+    V1beta1TrainingPortal k8sPortal = mapper.readValue(
+      """
+        apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+        kind: TrainingPortal
+        metadata:
+          annotations:
+            janitor/expires: "2022-08-18T12:53:00Z"
+            kopf.zalando.org/last-handled-configuration: |
+              {"foo":{"bar":[]}}
+            waas/timezone: Europe/Madrid
+          creationTimestamp: "2022-08-17T12:54:00Z"
+          generation: 2
+          labels:
+            waas/owner-email-domain: here.com
+            waas/owner-email-prefix: me
+          name: me-workshop
+          resourceVersion: "869104702"
+          uid: c1d339aa-df69-4f75-93eb-1f0500666065
+        spec:
+          workshops:
+          - capacity: 20
+            expires: 60m
+            name: a-workshop
+            orphaned: 20m
+            reserved: 2
+        status:
+          learningcenter:
+            clients:
+              robot:
+                id: FAKEID
+                secret: FAKESECRET
+            credentials:
+              admin:
+                password: FAKEPASSWORD
+                username: FAKEUSER
+              robot:
+                password: FAKEPASSWORD2
+                username: FAKEUSER2
+            namespace: me-workshop-ui
+            phase: Running
+            secrets:
+              ingress:
+              - a-secret
+              registry:
+              - reg-creds
+            url: https://me-workshop-ui.domain.test
+      """
+      , V1beta1TrainingPortal.class);
+
+      TrainingPortal modelPortal = converter.convert(k8sPortal);
+      assertThat(modelPortal, is(notNullValue()));
+      assertThat(modelPortal.getAdminUsername(), is("FAKEUSER"));
+      assertThat(modelPortal.getAdminPassword(), is("FAKEPASSWORD"));
   }
 
 }

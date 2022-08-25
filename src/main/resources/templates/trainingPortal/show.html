@@ -4,44 +4,88 @@
 <head>
   <title th:text="|${trainingPortal.name} Portal Details|">foobar Portal Details</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    #toast {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+      width: 250px;
+      height: 19px;
+      overflow: hidden; 
+    }
+    #toast.fade { 
+      opacity: 0;
+      height: 0;
+      width: 250px;
+      pointer-events: none;
+    }
+  </style>
   <script type="module">
-    import "/index.js";
+    import {createApp} from "/index.js";
+    createApp({
+      model: {
+        toastVisible: false
+      },
+      methods: {
+        copyPassword() {
+          var copyText = document.getElementById("adminPassword").innerText;
+          navigator.clipboard.writeText(copyText).then(() => {
+            // Alert the user that the action took place.
+            // Nobody likes hidden stuff being done under the hood!
+            document.getElementById("toast").classList.toggle("fade");
+            window.setTimeout(this.hideToast, 2000);
+          });
+        },
+        hideToast() {
+          document.getElementById("toast").classList.toggle("fade");
+        }
+      }
+    }).mount('#content')
   </script>
 </head>
 
 <body cds-text="body" cds-theme="dark">
   <div th:insert="fragments/layout :: app-container(~{ :: #content})">
-    <div id="content" cds-layout="p:md">
+    <div id="content" cds-layout="vertical cols:auto p:md">
       <h1 th:text="${trainingPortal.name}">ACME Co. Training</h1>
       <a href="#" th:href="${trainingPortal.url}">
         <cds-button action="flat-inline">Portal Page</cds-button>
       </a>
-      <p><label cds-text="secondary inline bold">Expires:</label> <span th:text="${#temporals.format(trainingPortal.expires, 'yyyy-MM-dd HH:mm')}">2095-01-23 20:54</span> <span
-          th:text="${trainingPortal.zone}">America/New_York</span></p>
+      <div cds-layout="grid p:md gap:lg">
+        <label cds-text="inline bold" cds-layout="col:1">Expires:</label>
+        <div cds-layout="horizontal pd:sm col:11">
+          <span th:text="${#temporals.format(trainingPortal.expires, 'yyyy-MM-dd HH:mm')}">2095-01-23 20:54</span>
+          <span>&nbsp;</span>
+          <span th:text="${trainingPortal.zone}">America/New_York</span>
+        </div>
+        <label cds-text="inline bold" cds-layout="col:1">Admin Username:</label>
+
+        <span cds-layout="col:11" th:text="${trainingPortal.adminUsername}">???</span>
+        <label cds-text="inline bold" cds-layout="col:1">Admin Password:</label>
+        <div cds-layout="col:11 gap:md horizontal">
+          <span th:text="${trainingPortal.adminPassword}" id="adminPassword">???</span>
+          <cds-icon-button style="vertical-align: top" @click="copyPassword"><cds-icon shape="copy-to-clipboard"></cds-icon></cds-icon-button>
+          <cds-alert-group id="toast" type="light" status="info" class="fade">
+            <cds-alert>
+                Password copied to clipboard.
+            </cds-alert>
+          </cds-alert-group>
+        </div>
+      </div>
       <div cds-layout="grid cols@sm:3 p:md gap:md">
         <cds-card th:each="workshop: ${trainingPortal.workshops}">
-          <div cds-layout="vertical gap:md">
-            <h2 cds-text="section" th:text="${workshop.name}">A Great Workshop</h2>
+          <div cds-layout="vertical gap:md" cds-text="body light">
+            <h2 cds-text="section" th:text="${workshop.name}" cds-layout="col:12">A Great Workshop</h2>
 
             <cds-divider cds-card-remove-margin></cds-divider>
-
-            <div cds-text="body light">
-              <label cds-text="secondary inline bold">Capacity:</label> <span th:text="${workshop.capacity}">999</span>
-            </div>
-            <div cds-text="body light">
-              <label cds-text="secondary inline bold">Initial:</label> <span th:text="${workshop.initial}">999</span>
-            </div>
-            <div cds-text="body light">
-              <label cds-text="secondary inline bold">Reserved:</label> <span th:text="${workshop.reserved}">999</span>
-            </div>
-            <div cds-text="body light">
-              <label cds-text="secondary inline bold">Expires:</label> <span th:text="${workshop.expires}">999m</span>
-            </div>
-            <div cds-text="body light">
-              <label cds-text="secondary inline bold">Orphaned:</label> <span th:text="${workshop.expires}">999m</span>
+            <div cds-layout="grid gap:md">
+              <label cds-text="inline bold" cds-layout="col:1" for="capacityText">Capacity:</label> <span id="capacityText" th:text="${workshop.capacity ?: 'Unlimited'}" cds-layout="col:11">999</span>
+              <label cds-text="inline bold" cds-layout="col:1">Initial:</label> <span th:text="${workshop.initial ?: 0}" cds-layout="col:11">999</span>
+              <label cds-text="inline bold" cds-layout="col:1">Reserved:</label> <span th:text="${workshop.reserved ?: 0}" cds-layout="col:11">999</span>
+              <label cds-text="inline bold" cds-layout="col:1">Expires:</label> <span th:text="${workshop.expires ?: 'Never'}" cds-layout="col:11">999m</span>
+              <label cds-text="inline bold" cds-layout="col:1">Orphaned:</label> <span th:text="${workshop.expires ?: 'Never'}" cds-layout="col:11">999m</span>
             </div>
             <div cds-text="body light" th:unless="${#maps.isEmpty(workshop.env)}">
-              <label cds-text="secondary inline bold">Environment:</label>
+              <label cds-text="inline bold">Environment:</label>
               <table>
                 <tr>
                   <th>Name</th>

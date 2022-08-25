@@ -12,6 +12,10 @@ import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortal;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpec;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecEnv;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecWorkshops;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalStatus;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalStatusLearningcenter;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalStatusLearningcenterCredentials;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalStatusLearningcenterCredentialsAdmin;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortalWorkshop;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal.TrainingPortalBuilder;
@@ -32,8 +36,21 @@ public class K8sTrainingPortalToTrainingPortal
             from.getMetadata().getLabels().get("waas/owner-email-prefix"),
             from.getMetadata().getLabels().get("waas/owner-email-domain")
           )
-        )
-        .url(from.getStatus() != null ? from.getStatus().getLearningcenter().getUrl() : null);
+        );
+      
+      V1beta1TrainingPortalStatus status = from.getStatus();
+      if(status != null) {
+        V1beta1TrainingPortalStatusLearningcenter statusLearningcenter = status.getLearningcenter();
+        if(statusLearningcenter != null) {
+          trainingPortal.url(statusLearningcenter.getUrl());
+          V1beta1TrainingPortalStatusLearningcenterCredentials creds = statusLearningcenter.getCredentials();
+          if(creds != null) {
+            V1beta1TrainingPortalStatusLearningcenterCredentialsAdmin adminCreds = creds.getAdmin();
+            trainingPortal.adminUsername(adminCreds.getUsername());
+            trainingPortal.adminPassword(adminCreds.getPassword());
+          }
+        }
+      }
 
       V1beta1TrainingPortalSpec spec = from.getSpec();
       if(spec != null) {
