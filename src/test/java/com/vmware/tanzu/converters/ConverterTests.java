@@ -3,12 +3,10 @@ package com.vmware.tanzu.converters;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.mockito.ArgumentMatchers.isNotNull;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -188,4 +186,57 @@ public class ConverterTests {
       assertThat(modelPortal.getAdminPassword(), is("FAKEPASSWORD"));
   }
 
+  @Test
+  public void convertsK8sObjectWithNoWorkshopsToModel()
+  throws JsonProcessingException {
+    K8sTrainingPortalToTrainingPortal converter = new K8sTrainingPortalToTrainingPortal();
+    
+    V1beta1TrainingPortal k8sPortal = mapper.readValue(
+      """
+        apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+        kind: TrainingPortal
+        metadata:
+          annotations:
+            janitor/expires: "2022-08-18T12:53:00Z"
+            kopf.zalando.org/last-handled-configuration: |
+              {"foo":{"bar":[]}}
+            waas/timezone: Europe/Madrid
+          creationTimestamp: "2022-08-17T12:54:00Z"
+          generation: 2
+          labels:
+            waas/owner-email-domain: here.com
+            waas/owner-email-prefix: me
+          name: me-workshop
+          resourceVersion: "869104702"
+          uid: c1d339aa-df69-4f75-93eb-1f0500666065
+        spec: {}
+        status:
+          learningcenter:
+            clients:
+              robot:
+                id: FAKEID
+                secret: FAKESECRET
+            credentials:
+              admin:
+                password: FAKEPASSWORD
+                username: FAKEUSER
+              robot:
+                password: FAKEPASSWORD2
+                username: FAKEUSER2
+            namespace: me-workshop-ui
+            phase: Running
+            secrets:
+              ingress:
+              - a-secret
+              registry:
+              - reg-creds
+            url: https://me-workshop-ui.domain.test
+      """
+      , V1beta1TrainingPortal.class);
+
+      TrainingPortal modelPortal = converter.convert(k8sPortal);
+      assertThat(modelPortal, is(notNullValue()));
+      assertThat(modelPortal.getWorkshops(), is(notNullValue()));
+      assertThat(modelPortal.getWorkshops().length, is(0));
+  }
 }

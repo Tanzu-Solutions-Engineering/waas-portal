@@ -55,23 +55,26 @@ public class K8sTrainingPortalToTrainingPortal
       V1beta1TrainingPortalSpec spec = from.getSpec();
       if(spec != null) {
         ArrayList<TrainingPortalWorkshop> workshops = new ArrayList<TrainingPortalWorkshop>();
-        for(V1beta1TrainingPortalSpecWorkshops workshop : spec.getWorkshops()){
-          List<V1beta1TrainingPortalSpecEnv> envList = workshop.getEnv();
-          Map<String, String> envMap = new HashMap<>();
-          if(envList != null) {
-            for(V1beta1TrainingPortalSpecEnv env : workshop.getEnv()) {
-              envMap.put(env.getName(), env.getValue());
+        List<V1beta1TrainingPortalSpecWorkshops> k8sObjWorkshops = spec.getWorkshops();
+        if(k8sObjWorkshops != null) {
+          for(V1beta1TrainingPortalSpecWorkshops workshop : spec.getWorkshops()){
+            List<V1beta1TrainingPortalSpecEnv> envList = workshop.getEnv();
+            Map<String, String> envMap = new HashMap<>();
+            if(envList != null) {
+              for(V1beta1TrainingPortalSpecEnv env : workshop.getEnv()) {
+                envMap.put(env.getName(), env.getValue());
+              }
             }
+            workshops.add(TrainingPortalWorkshop.builder()
+              .name(workshop.getName())
+              .capacity(workshop.getCapacity())
+              .env(envMap)
+              .expires(workshop.getExpires())
+              .initial(workshop.getInitial())
+              .orphaned(workshop.getOrphaned())
+              .reserved(workshop.getReserved())
+              .build());
           }
-          workshops.add(TrainingPortalWorkshop.builder()
-            .name(workshop.getName())
-            .capacity(workshop.getCapacity())
-            .env(envMap)
-            .expires(workshop.getExpires())
-            .initial(workshop.getInitial())
-            .orphaned(workshop.getOrphaned())
-            .reserved(workshop.getReserved())
-            .build());
         }
         trainingPortal.workshops(workshops.toArray(new TrainingPortalWorkshop[workshops.size()]));
       }
