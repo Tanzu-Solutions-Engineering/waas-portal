@@ -5,19 +5,48 @@
   <title th:text="|${trainingPortal.name} Portal Details|">foobar Portal Details</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <style>
-    #toast {
-      opacity: 1;
-      transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
-      width: 250px;
-      height: 19px;
-      overflow: hidden; 
+    .flip-container {
+      perspective: 1000px;
     }
-    #toast.fade { 
-      opacity: 0;
-      height: 0;
-      width: 250px;
-      pointer-events: none;
+      /* flip the pane when hovered */
+      .flip-container.flip .flipper {
+        transform: rotateY(180deg);
+      }
+
+    .flip-container, .front, .back {
+      width: 16px;
+      height: 16px;
     }
+
+    /* flip speed goes here */
+    .flipper {
+      transition: 0.6s;
+      transform-style: preserve-3d;
+
+      position: relative;
+    }
+
+    /* hide back of pane during swap */
+    .front, .back {
+      backface-visibility: hidden;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* front pane, placed above back */
+    .front {
+      z-index: 2;
+      /* for firefox 31 */
+      transform: rotateY(0deg);
+    }
+
+    /* back, initially hidden pane */
+    .back {
+      transform: rotateY(180deg);
+    }
+
   </style>
   <script type="module">
     import {createApp} from "/index.js";
@@ -31,12 +60,12 @@
           navigator.clipboard.writeText(copyText).then(() => {
             // Alert the user that the action took place.
             // Nobody likes hidden stuff being done under the hood!
-            document.getElementById("toast").classList.toggle("fade");
+            document.getElementById("admin-password-clipboard").classList.toggle("flip");
             window.setTimeout(this.hideToast, 2000);
           });
         },
         hideToast() {
-          document.getElementById("toast").classList.toggle("fade");
+          document.getElementById("admin-password-clipboard").classList.toggle("flip");
         }
       }
     }).mount('#content')
@@ -68,12 +97,18 @@
         <label cds-text="inline bold" cds-layout="col:1">Admin Password:</label>
         <div cds-layout="col:11 gap:md horizontal">
           <span th:text="${trainingPortal.adminPassword}" id="adminPassword">???</span>
-          <cds-icon-button style="vertical-align: top" @click="copyPassword"><cds-icon shape="copy-to-clipboard"></cds-icon></cds-icon-button>
-          <cds-alert-group id="toast" type="light" status="info" class="fade">
-            <cds-alert>
-                Password copied to clipboard.
-            </cds-alert>
-          </cds-alert-group>
+          <cds-icon-button style="vertical-align: top" @click="copyPassword">
+            <div id="admin-password-clipboard" class="flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <cds-icon shape="copy-to-clipboard"></cds-icon>
+                </div>
+                <div class="back">
+                  <cds-icon shape="check"></cds-icon>
+                </div>
+              </div>
+            </div>
+          </cds-icon-button>
         </div>
       </div>
       <div cds-layout="grid cols@sm:3 p:md gap:md">
