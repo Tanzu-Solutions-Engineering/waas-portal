@@ -28,6 +28,15 @@
           }
         }
       },
+      computed: {
+        portalDomain() {
+          return this.trainingPortal.name + "-ui." + window.location.hostname.substring(window.location.hostname.indexOf('.')+1);
+        },
+        formValid() {
+          return this.trainingPortal.workshops.length == 0 ||
+            this.trainingPortal.name.length == 0;
+        }
+      },
       methods: {
         addWorkshop() {
           let currentIndex=this.trainingPortal.workshops.length;
@@ -77,11 +86,13 @@
   <div th:insert="fragments/layout :: app-container(~{ :: #content})">
 
     <div id="content" cds-layout="p:md">
-      <form v-on:submit.prevent="submitForm">
+      <form v-on:submit.prevent="submitForm" ref="form">
         <cds-form-group layout="horizontal-inline" control-width="shrink">
           <cds-input control-width="shrink">
             <label>Name</label>
-            <input type="text" id="name" name="name" v-model="trainingPortal.name" />
+            <input type="text" id="name" name="name" v-model="trainingPortal.name" required/>
+            <cds-control-message error="valueMissing" hidden="">Name is required</cds-control-message>
+            <cds-control-message>Portal URL will be {{portalDomain}}</cds-control-message>
           </cds-input>
           <cds-input-group layout="horizontal">
             <label>Expires</label>
@@ -109,6 +120,11 @@
             <cds-button type="button" action="flat-inline" @click="addWorkshop">Add</cds-button>
           </div>
           <div cds-layout="grid cols@sm:3 p:md gap:md">
+            <cds-card v-if="trainingPortal.workshops.length == 0">
+              <div cds-layout="vertical gap:md">
+                <div cds-text="body light">Select each workshop module you want to include in your portal from the list above and click the "Add" link.</div>
+              </div>
+            </cds-card>
             <cds-card v-for="(workshop, index) in trainingPortal.workshops">
                 <div cds-layout="vertical gap:md">
                     <h2 cds-text="section">{{workshop.name}}</h2>
@@ -121,11 +137,13 @@
                           <label>Capacity</label>
                           <input type="number" v-model="workshop.capacity" min="1"/>
                           <cds-control-message error="rangeUnderflow" hidden="">Must be an integer value greater than 0</cds-control-message>
+                          <cds-control-message>The hard maximum number of concurrent sessions for this module</cds-control-message>
                         </cds-input>
                         <cds-input control-width="shrink">
                           <label>Reserved</label>
                           <input type="number" v-model="workshop.reserved" min="0"/>
                           <cds-control-message error="rangeUnderflow" hidden="">Must be a positive integer value, or 0</cds-control-message>
+                          <cds-control-message>The number of sessions to pre-stage for this module</cds-control-message>
                         </cds-input>
                         <duration-component label="Expiry" v-model="workshop.expires"></duration-component>
                         <duration-component label="Orphaned" v-model="workshop.orphaned"></duration-component>
@@ -137,7 +155,7 @@
                 </div>
             </cds-card>
           </div>
-          <cds-button type="submit" :disabled="trainingPortal.workshops.length == 0">Create</cds-button>
+          <cds-button type="submit" :disabled="formValid">Create</cds-button>
         </cds-form-group>
       </form>
     </div>
