@@ -24,7 +24,8 @@ export { createApp }
 export const DurationComponent = {
   props: {
     'label': "",
-    'modelValue': ''
+    'modelValue': '',
+    'controlinfo': ''
   },
   computed: {
     duration() {
@@ -59,6 +60,7 @@ export const DurationComponent = {
         <option value="h">hours</option>
       </select>
     </cds-select>
+    <cds-control-message v-if:"controlinfo">{{ controlinfo }}</cds-control-message>
   </cds-input-group>
   `
 }

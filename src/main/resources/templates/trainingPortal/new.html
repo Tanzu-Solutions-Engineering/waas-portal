@@ -145,8 +145,10 @@
                           <cds-control-message error="rangeUnderflow" hidden="">Must be a positive integer value, or 0</cds-control-message>
                           <cds-control-message>The number of sessions to pre-stage for this module</cds-control-message>
                         </cds-input>
-                        <duration-component label="Expiry" v-model="workshop.expires"></duration-component>
-                        <duration-component label="Orphaned" v-model="workshop.orphaned"></duration-component>
+                        <duration-component label="Expiry" v-model="workshop.expires"
+                          controlinfo="Length of time a session can run without user extension"></duration-component>
+                        <duration-component label="Orphaned" v-model="workshop.orphaned"
+                          controlinfo="Length of time a session can have browser disconnected before expiring"></duration-component>
                       </cds-form-group>
                     </form>
                     <div cds-layout="horizontal gap:sm align:vertical-center">
