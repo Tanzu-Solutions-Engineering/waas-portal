@@ -18,7 +18,7 @@
           selectedWorkshop: null,
           removedWorkshops:[],
           trainingPortal: {
-            name: [[${user +"-workshop-"+ T(java.lang.System).currentTimeMillis()}]],
+            name: [[${user +"-"+ T(java.util.Base64).getEncoder().withoutPadding().encodeToString(T(java.nio.ByteBuffer).allocate(8).putLong(T(java.lang.System).currentTimeMillis()).array())}]],
             expires: futureDate.getFullYear().toString() + "-" +
               ("0"+(futureDate.getMonth()+1)).slice(-2) + "-" +
               ("0" + futureDate.getDate()).slice(-2) + "T" +
