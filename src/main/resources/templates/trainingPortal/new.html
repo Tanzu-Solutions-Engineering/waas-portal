@@ -90,7 +90,8 @@
         <cds-form-group layout="horizontal-inline" control-width="shrink">
           <cds-input control-width="shrink">
             <label>Name</label>
-            <input type="text" id="name" name="name" v-model="trainingPortal.name" required/>
+            <input type="text" id="name" name="name" v-model="trainingPortal.name" required pattern="[a-z0-9]([-a-z0-9]*[a-z0-9])"/>
+            <cds-control-message error="patternMismatch" hidden="">Name must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character</cds-control-message>
             <cds-control-message error="valueMissing" hidden="">Name is required</cds-control-message>
             <cds-control-message>Portal URL will be {{portalDomain}}</cds-control-message>
           </cds-input>
