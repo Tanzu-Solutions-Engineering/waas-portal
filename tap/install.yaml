@@ -1,0 +1,38 @@
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretImport
+metadata:
+  name: eduk8s-cert-tls
+  namespace: waas-portal
+spec:
+  fromNamespace: waas-install
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: waas
+  namespace: waas-portal
+  labels:
+    apps.tanzu.vmware.com/workload-type: web-custom-hostname
+    app.kubernetes.io/part-of: waas
+spec:
+  build:
+    env:
+    - name: BP_JVM_VERSION
+      value: "17"
+  source:
+    git:
+      url: https://github.com/Tanzu-Solutions-Engineering/waas-portal.git
+      ref:
+        branch: main
+  serviceClaims:
+  - name: workspaceair
+    ref:
+      apiVersion: v1
+      kind: Secret
+      name: waas-portal-values
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+    - name: custom-hostname
+      value: waas
