@@ -13,6 +13,8 @@ public class TrainingPortal {
     private TrainingPortalWorkshop workshops[];
     private String adminUsername;
     private String adminPassword;
+    private AuthType authType = AuthType.ONE_STEP;
+    private String portalPassword;
 
     public String getAdminUsername() {
         return adminUsername;
@@ -31,7 +33,8 @@ public class TrainingPortal {
     }
 
     TrainingPortal(String name, LocalDateTime expires, ZoneId zone, String owner, String url,
-            TrainingPortalWorkshop workshops[], String adminUsername, String adminPassword) {
+            TrainingPortalWorkshop workshops[], String adminUsername, String adminPassword, 
+            AuthType authType, String portalPassword) {
         this.name = name;
         this.expires = expires;
         this.zone = zone;
@@ -40,6 +43,8 @@ public class TrainingPortal {
         this.workshops = workshops;
         this.adminUsername = adminUsername;
         this.adminPassword = adminPassword;
+        this.authType = authType;
+        this.portalPassword = portalPassword;
     }
 
     public String getName() {
@@ -90,8 +95,29 @@ public class TrainingPortal {
         this.workshops = workshops;
     }
 
+    public AuthType getAuthType() {
+        return authType;
+    }
+
+    public void setAuthType(AuthType authType) {
+        this.authType = authType;
+    }
+
+    public String getPortalPassword() {
+        return portalPassword;
+    }
+
+    public void setPortalPassword(String portalPassword) {
+        this.portalPassword = portalPassword;
+    }
+
     public static TrainingPortalBuilder builder() {
         return new TrainingPortalBuilder();
+    }
+
+    public static enum AuthType {
+        ONE_STEP,
+        ANONYMOUS
     }
 
     public static class TrainingPortalBuilder {
@@ -103,6 +129,8 @@ public class TrainingPortal {
         private TrainingPortalWorkshop workshops[];
         private String adminUsername;
         private String adminPassword;
+        private AuthType authType;
+        private String portalPassword;
     
         TrainingPortalBuilder() {
         }
@@ -147,8 +175,18 @@ public class TrainingPortal {
             return this;
         }
 
+        public TrainingPortalBuilder authType(AuthType authType) {
+            this.authType = authType;
+            return this;
+        }
+
+        public TrainingPortalBuilder portalPassword(String portalPassword) {
+            this.portalPassword = portalPassword;
+            return this;
+        }
+
         public TrainingPortal build() {
-            return new TrainingPortal(name, expires, zone, owner, url, workshops, adminUsername, adminPassword);
+            return new TrainingPortal(name, expires, zone, owner, url, workshops, adminUsername, adminPassword, authType, portalPassword);
         }
     }
 }

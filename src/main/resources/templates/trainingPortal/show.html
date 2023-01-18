@@ -91,9 +91,10 @@
           <span>&nbsp;</span>
           <span th:text="${trainingPortal.zone}">America/New_York</span>
         </div>
-        <label cds-text="inline bold" cds-layout="col:1">Admin Username:</label>
 
+        <label cds-text="inline bold" cds-layout="col:1">Admin Username:</label>
         <span cds-layout="col:11" th:text="${trainingPortal.adminUsername}">???</span>
+
         <label cds-text="inline bold" cds-layout="col:1">Admin Password:</label>
         <div cds-layout="col:11 gap:md horizontal">
           <span th:text="${trainingPortal.adminPassword}" id="adminPassword">???</span>
@@ -109,6 +110,17 @@
               </div>
             </div>
           </cds-icon-button>
+        </div>
+        <label cds-text="inline bold" cds-layout="col:1">Registration Type:</label>
+        <div cds-layout="horizontal pd:sm col:11" th:switch="${trainingPortal.authType}">
+          <span th:case="${T(com.vmware.tanzu.se.waasportal.model.TrainingPortal.AuthType).ONE_STEP}">Users must register</span>
+          <span th:case="${T(com.vmware.tanzu.se.waasportal.model.TrainingPortal.AuthType).ANONYMOUS}">No registration</span>
+          <span th:case="*">Unknown</span>
+        </div>
+
+        <label cds-text="inline bold" cds-layout="col:1" th:unless="${#strings.isEmpty(trainingPortal.portalPassword)}">Portal Password:</label>
+        <div cds-layout="horizontal pd:sm col:11" th:unless="${#strings.isEmpty(trainingPortal.portalPassword)}">
+          <span th:text="${trainingPortal.portalPassword}">BOGUSPASSWORD</span>
         </div>
       </div>
       <div cds-layout="grid cols@sm:3 p:md gap:md">

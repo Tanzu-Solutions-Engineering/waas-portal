@@ -24,7 +24,9 @@
               ("0" + futureDate.getDate()).slice(-2) + "T" +
               ("0" + futureDate.getHours()).slice(-2) + ":" + ("0" + futureDate.getMinutes()).slice(-2),
             zone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-            workshops: []
+            workshops: [],
+            authType: "ONE_STEP",
+            portalPassword: null
           }
         }
       },
@@ -109,6 +111,24 @@
               </datalist>
             </cds-datalist>
           </cds-input-group>
+          <div cds-layout="horizontal">
+            <cds-radio-group cds-layout="horizontal">
+              <label>Portal Authentication Type</label>
+              <cds-radio>
+                <label>User Registration Required</label>
+                <input type="radio" v-model="trainingPortal.authType" value="ONE_STEP" @change="trainingPortal.portalPassword=null"/>
+              </cds-radio>
+              <cds-radio cds-layout="vertical">
+                <label>Single Password with No User Registration</label>
+                <input type="radio" v-model="trainingPortal.authType" value="ANONYMOUS" />
+              </cds-radio>
+            </cds-radio-group>
+          </div>
+          <cds-input>
+            <label>Portal Password</label>
+            <input :disabled="trainingPortal.authType != 'ANONYMOUS'" :required="trainingPortal.authType != 'ANONYMOUS'" type="text" id="portalPassword" name="portalPassword" placeholder="password" v-model="trainingPortal.portalPassword" />
+            <cds-control-message error="valueMissing" hidden="">Password is required</cds-control-message>
+          </cds-input>
           <div cds-layout="horizontal gap:lg align:vertical-center">
             <cds-select>
               <label>Available Workshops</label>

@@ -2,6 +2,8 @@ package com.vmware.tanzu.se.waasportal.converters;
 
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortal;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpec;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecPortal;
+import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecPortalRegistration;
 import com.vmware.tanzu.learningcenter.models.V1beta1TrainingPortalSpecWorkshops;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortal;
 import com.vmware.tanzu.se.waasportal.model.TrainingPortalWorkshop;
@@ -52,6 +54,19 @@ public class TrainingPortalToK8sTrainingPortal
             .expires(workshop.getExpires())
         );
       }
+
+      V1beta1TrainingPortalSpecPortal specPortal = new V1beta1TrainingPortalSpecPortal();
+      V1beta1TrainingPortalSpecPortalRegistration specPortalRegistration = new V1beta1TrainingPortalSpecPortalRegistration();
+      if(TrainingPortal.AuthType.ANONYMOUS.equals(from.getAuthType())) {
+        specPortalRegistration.setType("anonymous");
+      } else {
+        specPortalRegistration.setType("one-step");
+      }
+      specPortal.setRegistration(specPortalRegistration);
+      specPortal.setPassword(from.getPortalPassword());
+
+      spec.setPortal(specPortal);
+
       converted.setSpec(spec);
       
       return converted;
