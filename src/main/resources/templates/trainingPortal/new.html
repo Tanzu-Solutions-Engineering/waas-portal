@@ -92,9 +92,7 @@
         <cds-form-group layout="horizontal-inline" control-width="shrink">
           <cds-input control-width="shrink">
             <label>Name</label>
-            <input type="text" id="name" name="name" v-model="trainingPortal.name" required pattern="[a-z]([-a-z0-9]*[a-z0-9])"/>
-            <cds-control-message error="patternMismatch" hidden="">Name must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphabetic [a-z] character</cds-control-message>
-            <cds-control-message error="valueMissing" hidden="">Name is required</cds-control-message>
+            <input type="text" id="name" name="name" v-model="trainingPortal.name" required pattern="[a-z]([-a-z0-9]*[a-z0-9])" title="Name must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphabetic [a-z] character"/>
             <cds-control-message>Portal URL will be {{portalDomain}}</cds-control-message>
           </cds-input>
           <cds-input-group layout="horizontal">
@@ -127,7 +125,6 @@
           <cds-input>
             <label>Portal Password</label>
             <input :disabled="trainingPortal.authType != 'ANONYMOUS'" :required="trainingPortal.authType != 'ANONYMOUS'" type="text" id="portalPassword" name="portalPassword" placeholder="password" v-model="trainingPortal.portalPassword" />
-            <cds-control-message error="valueMissing" hidden="">Password is required</cds-control-message>
           </cds-input>
           <div cds-layout="horizontal gap:lg align:vertical-center">
             <cds-select>
