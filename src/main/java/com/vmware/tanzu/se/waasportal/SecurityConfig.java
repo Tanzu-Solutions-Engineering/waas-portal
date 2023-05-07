@@ -19,8 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                     .antMatchers("/*.css", "/*.js").permitAll()
                     .requestMatchers(
-                        EndpointRequest.to("health","info"), 
-                        EndpointRequest.toLinks()).permitAll()
+                        EndpointRequest.toAnyEndpoint()).permitAll()
                     .antMatchers("/livez", "/readyz").permitAll()
                     .anyRequest().authenticated()
                     .and()
