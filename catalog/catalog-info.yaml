@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: waas-portal
+  description: Workshops as a Service Portal
+  tags:
+    - java
+    - spring
+    - web
+    - tanzu
+    - waas
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=waas'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default-team
