@@ -52,11 +52,6 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
 		<dependency>
-			<groupId>org.springframework.experimental</groupId>
-			<artifactId>spring-native</artifactId>
-			<version>0.11.2</version>
-		</dependency>
-		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java</artifactId>
 			<version>17.0.0</version>
@@ -105,27 +100,6 @@
 								<spring.boot.version>${project.parent.version}</spring.boot.version>
 							</additionalProperties>
 						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder:tiny</builder>
-						<env>
-							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-						</env>
-					</image>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.experimental</groupId>
-				<artifactId>spring-aot-maven-plugin</artifactId>
-				<version>0.11.2</version>
-				<executions>
-					<execution>
-						<id>generate</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
 					</execution>
 				</executions>
 			</plugin>
