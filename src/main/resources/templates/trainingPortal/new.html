@@ -132,7 +132,7 @@
               <select id="availableWorkshops" v-model="selectedWorkshop">
                 <option v-for="workshop in workshops" v-bind:value="workshop" v-bind:text="workshop.title">Option One</option>
               </select>
-              <cds-control-message>{{selectedWorkshop?.description}}</cds-control-message>
+              <cds-control-message>{{selectedWorkshop?.description}}<br /><a v-bind:href="selectedWorkshop?.url" target="_blank"><cds-button type="button" action="flat-inline">{{selectedWorkshop?.url}}</cds-button></a></cds-control-message>
             </cds-select>
             <cds-divider orientation="vertical"></cds-divider>
             <cds-button type="button" action="flat-inline" @click="addWorkshop">Add</cds-button>

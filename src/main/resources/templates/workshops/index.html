@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Workshops</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script type="module">
+    import "/index.js";
+  </script>
+</head>
+
+<body cds-text="body" cds-theme="dark" style="background-color: #1B2A33;">
+  <div th:insert="fragments/layout :: app-container(~{ :: #content})">
+    <div id="content">
+      <div cds-layout="grid cols@md:6 cols@lg:3 p:md gap:md">
+        <cds-card th:each="workshop: ${workshops}">
+          <div cds-layout="vertical gap:md">
+            <h2 cds-text="section" th:text="${workshop.name}">A Workshop</h2>
+
+            <cds-divider cds-card-remove-margin></cds-divider>
+            <div cds-layout="vertical gap:md" cds-text="body">
+              <div cds-layout="vertical gap:sm">
+                <div cds-text="caption">Title:</div>
+                <span th:text="${workshop.title}">Project B</span>
+              </div>
+              <div cds-layout="vertical gap:sm">
+                <div cds-text="caption">Content:</div>
+                <a th:href="${workshop.url}" target="_blank"><span cds-text="link"
+                    th:text="${workshop.url}">https://github.com/example/example</span></a>
+              </div>
+              <div cds-layout="vertical gap:sm">
+                <div cds-text="caption">Description:</div>
+                <span th:text="${workshop.description}">Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+              </div>
+            </div>
+          </div>
+        </cds-card>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

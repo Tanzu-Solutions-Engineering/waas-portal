@@ -24,13 +24,19 @@
           <cds-navigation-item th:active="(${view} == 'index')? 'index' : _">
             <a href="#" th:href="@{/trainingportals}">
               <cds-icon shape="grid-view"></cds-icon>
-              My Workshops
+              My Workshop Portals
             </a>
           </cds-navigation-item>
           <cds-navigation-item th:active="(${view} == 'new')? 'new' : _">
             <a href="#" th:href="@{/trainingportals/new}">
               <cds-icon shape="plus-circle"></cds-icon>
-              New Workshop
+              New Workshop Portal
+            </a>
+          </cds-navigation-item>
+          <cds-navigation-item th:active="(${view} == 'workshops')? 'workshops' : _">
+            <a href="#" th:href="@{/workshops}">
+              <cds-icon shape="plus-circle"></cds-icon>
+              Browse Workshop Content
             </a>
           </cds-navigation-item>
         </cds-navigation>

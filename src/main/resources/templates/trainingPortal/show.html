@@ -78,10 +78,10 @@
       <h1 th:text="${trainingPortal.name}">ACME Co. Training</h1>
       <div cds-layout="horizontal gap:lg">
         <a href="#" th:href="${trainingPortal.url}">
-          <cds-button action="flat-inline">Portal Page</cds-button>
+          <cds-button action="flat-inline" target="_blank">Portal Page</cds-button>
         </a>
         <a href="#" th:href="${trainingPortal.url} + '/admin'">
-          <cds-button action="flat-inline">Portal Admin Page</cds-button>
+          <cds-button action="flat-inline" target="_blank">Portal Admin Page</cds-button>
         </a>
       </div>
       <div cds-layout="grid p:md gap:lg">
@@ -127,7 +127,6 @@
         <cds-card th:each="workshop: ${trainingPortal.workshops}">
           <div cds-layout="vertical gap:md" cds-text="body light">
             <h2 cds-text="section" th:text="${workshop.name}" cds-layout="col:12">A Great Workshop</h2>
-
             <cds-divider cds-card-remove-margin></cds-divider>
             <div cds-layout="grid gap:md">
               <label cds-text="inline bold" cds-layout="col:1" for="capacityText">Capacity:</label> <span id="capacityText" th:text="${workshop.capacity ?: 'Unlimited'}" cds-layout="col:11">999</span>

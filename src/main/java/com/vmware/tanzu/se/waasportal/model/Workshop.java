@@ -10,6 +10,7 @@ public class Workshop {
     private String name;
     private String title;
     private String description;
+    private String url;
 
     public WorkshopBuilder name(String name) {
       this.name = name;
@@ -26,19 +27,26 @@ public class Workshop {
       return this;
     }
 
+    public WorkshopBuilder url(String url) {
+      this.url = url;
+      return this;
+    }
+
     public Workshop build() {
-      return new Workshop(name, title, description);
+      return new Workshop(name, title, description, url);
     }
   }
 
   private String name;
   private String title;
   private String description;
+  private String url;
 
-  Workshop(String name, String title, String description) {
+  Workshop(String name, String title, String description, String url) {
     this.name = name;
     this.title = title;
     this.description = description;
+    this.url = url;
   }
 
   public String getName() {
@@ -63,6 +71,14 @@ public class Workshop {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 }

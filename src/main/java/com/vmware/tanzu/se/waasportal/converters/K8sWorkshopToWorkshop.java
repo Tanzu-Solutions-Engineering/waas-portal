@@ -15,6 +15,7 @@ public class K8sWorkshopToWorkshop
         .name(from.getMetadata().getName())
         .title(from.getSpec().getTitle())
         .description(from.getSpec().getDescription())
+        .url(from.getSpec().getUrl())
         .build();
         
     }

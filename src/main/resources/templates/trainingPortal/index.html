@@ -23,7 +23,7 @@
                         th:text="${trainingPortal.zone}">America/New_York</span>
                     </div>
                     <div cds-text="body light" th:if="${trainingPortal.url}">
-                        <a href="#" th:href="${trainingPortal.url}"><cds-button action="flat-inline">Portal Page</cds-button></span>
+                        <a href="#" th:href="${trainingPortal.url}" target="_blank"><cds-button action="flat-inline">Portal Page</cds-button></span>
                     </div>
                     <div cds-text="body light" th:unless="${trainingPortal.url}">
                         Portal provisioning...
@@ -46,7 +46,7 @@
             </cds-card>
             <cds-card th:if="${#arrays.isEmpty(trainingPortals)}">
                 <div cds-layout="vertical gap:md">
-                    <h2 cds-text="section">Create New Workshop</h2>
+                    <h2 cds-text="section">Create New Workshop Portal</h2>
 
                     <cds-divider cds-card-remove-margin></cds-divider>
 
