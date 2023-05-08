@@ -17,6 +17,7 @@ public class WorkshopController {
 
   @GetMapping
   public String index(Model model) {
+    model.addAttribute("view", "workshops");
     model.addAttribute("workshops", workshopService.getAvailableWorkshops());
     return "workshops/index.html";
   }
