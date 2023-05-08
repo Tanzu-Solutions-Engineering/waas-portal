@@ -4,9 +4,9 @@ import "../frontend/node_modules/@cds/core/alert/register.js";
 import "../frontend/node_modules/@cds/core/button/register.js";
 
 import "../frontend/node_modules/@cds/core/icon/register.js";
-import { ClarityIcons, nodeGroupIcon, gridViewIcon, plusCircleIcon, copyToClipboardIcon, checkIcon } from "../frontend/node_modules/@cds/core/icon";
+import { ClarityIcons, nodeGroupIcon, gridViewIcon, plusCircleIcon, copyToClipboardIcon, checkIcon, fileGroupIcon } from "../frontend/node_modules/@cds/core/icon";
 
-ClarityIcons.addIcons(nodeGroupIcon, gridViewIcon, plusCircleIcon, copyToClipboardIcon, checkIcon);
+ClarityIcons.addIcons(nodeGroupIcon, gridViewIcon, plusCircleIcon, copyToClipboardIcon, checkIcon, fileGroupIcon);
 
 import "../frontend/node_modules/@cds/core/card/register.js";
 import "../frontend/node_modules/@cds/core/navigation/register.js";

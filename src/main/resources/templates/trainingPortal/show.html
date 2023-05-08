@@ -77,10 +77,10 @@
     <div id="content" cds-layout="vertical cols:auto p:md">
       <h1 th:text="${trainingPortal.name}">ACME Co. Training</h1>
       <div cds-layout="horizontal gap:lg">
-        <a href="#" th:href="${trainingPortal.url}">
-          <cds-button action="flat-inline" target="_blank">Portal Page</cds-button>
+        <a href="#" th:href="${trainingPortal.url}" target="_blank">
+          <cds-button action="flat-inline">Portal Page</cds-button>
         </a>
-        <a href="#" th:href="${trainingPortal.url} + '/admin'">
+        <a href="#" th:href="${trainingPortal.url} + '/admin'" target="_blank">
           <cds-button action="flat-inline" target="_blank">Portal Admin Page</cds-button>
         </a>
       </div>
