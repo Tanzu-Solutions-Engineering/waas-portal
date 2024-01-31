@@ -1,0 +1,6 @@
+src/main/java/dev/educates/training/V1beta1TrainingPortalSpecPortalCredentialsAdmin.java:hashicorp-tf-password:32
+src/main/java/dev/educates/training/V1beta1TrainingPortalSpecPortal.java:hashicorp-tf-password:94
+src/main/java/dev/educates/training/V1beta1TrainingPortalStatusEducatesCredentialsAdmin.java:hashicorp-tf-password:32
+src/main/java/dev/educates/training/V1beta1WorkshopEnvironmentSpecSession.java:hashicorp-tf-password:45
+src/main/java/dev/educates/training/V1beta1WorkshopSessionSpecSessionConfig.java:hashicorp-tf-password:32
+src/main/java/dev/educates/training/V1beta1WorkshopSessionSpecSession.java:hashicorp-tf-password:54
