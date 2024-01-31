@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1TrainingPortalSpecPortalUpdates
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpecPortalUpdates {
   public static final String SERIALIZED_NAME_WORKSHOP = "workshop";
   @SerializedName(SERIALIZED_NAME_WORKSHOP)
@@ -44,7 +44,7 @@ public class V1beta1TrainingPortalSpecPortalUpdates {
    * Get workshop
    * @return workshop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Boolean getWorkshop() {

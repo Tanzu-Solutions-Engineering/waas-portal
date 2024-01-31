@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * V1beta1WorkshopSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpec {
   public static final String SERIALIZED_NAME_AUTHORS = "authors";
   @SerializedName(SERIALIZED_NAME_AUTHORS)
@@ -101,7 +101,7 @@ public class V1beta1WorkshopSpec {
    * Get authors
    * @return authors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<String> getAuthors() {
@@ -124,7 +124,7 @@ public class V1beta1WorkshopSpec {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecContent getContent() {
@@ -169,7 +169,7 @@ public class V1beta1WorkshopSpec {
    * Get difficulty
    * @return difficulty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getDifficulty() {
@@ -192,7 +192,7 @@ public class V1beta1WorkshopSpec {
    * Get duration
    * @return duration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getDuration() {
@@ -215,7 +215,7 @@ public class V1beta1WorkshopSpec {
    * Get environment
    * @return environment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecEnvironment getEnvironment() {
@@ -238,7 +238,7 @@ public class V1beta1WorkshopSpec {
    * Get logo
    * @return logo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getLogo() {
@@ -261,7 +261,7 @@ public class V1beta1WorkshopSpec {
    * Get session
    * @return session
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSession getSession() {
@@ -292,7 +292,7 @@ public class V1beta1WorkshopSpec {
    * Get tags
    * @return tags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<String> getTags() {
@@ -337,7 +337,7 @@ public class V1beta1WorkshopSpec {
    * Get url
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getUrl() {
@@ -360,7 +360,7 @@ public class V1beta1WorkshopSpec {
    * Get vendor
    * @return vendor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getVendor() {

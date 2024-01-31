@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * V1beta1WorkshopSpecSession
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSession {
   public static final String SERIALIZED_NAME_APPLICATIONS = "applications";
   @SerializedName(SERIALIZED_NAME_APPLICATIONS)
@@ -93,7 +93,7 @@ public class V1beta1WorkshopSpecSession {
    * Get applications
    * @return applications
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplications getApplications() {
@@ -116,7 +116,7 @@ public class V1beta1WorkshopSpecSession {
    * Get budget
    * @return budget
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getBudget() {
@@ -147,7 +147,7 @@ public class V1beta1WorkshopSpecSession {
    * Get dashboards
    * @return dashboards
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1WorkshopSpecSessionDashboards> getDashboards() {
@@ -178,7 +178,7 @@ public class V1beta1WorkshopSpecSession {
    * Get env
    * @return env
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1TrainingPortalSpecEnv> getEnv() {
@@ -209,7 +209,7 @@ public class V1beta1WorkshopSpecSession {
    * Get ingresses
    * @return ingresses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1WorkshopSpecSessionIngresses> getIngresses() {
@@ -232,7 +232,7 @@ public class V1beta1WorkshopSpecSession {
    * Get namespaces
    * @return namespaces
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionNamespaces getNamespaces() {
@@ -263,7 +263,7 @@ public class V1beta1WorkshopSpecSession {
    * Get objects
    * @return objects
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<Object> getObjects() {
@@ -286,7 +286,7 @@ public class V1beta1WorkshopSpecSession {
    * Get patches
    * @return patches
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Object getPatches() {
@@ -309,7 +309,7 @@ public class V1beta1WorkshopSpecSession {
    * Get resources
    * @return resources
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionResources getResources() {
@@ -332,7 +332,7 @@ public class V1beta1WorkshopSpecSession {
    * Get role
    * @return role
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getRole() {
@@ -355,7 +355,7 @@ public class V1beta1WorkshopSpecSession {
    * Get security
    * @return security
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionSecurity getSecurity() {

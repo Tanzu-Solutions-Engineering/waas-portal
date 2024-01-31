@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * V1beta1TrainingPortalSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpec {
   public static final String SERIALIZED_NAME_ANALYTICS = "analytics";
   @SerializedName(SERIALIZED_NAME_ANALYTICS)
@@ -62,7 +62,7 @@ public class V1beta1TrainingPortalSpec {
    * Get analytics
    * @return analytics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecAnalytics getAnalytics() {
@@ -85,7 +85,7 @@ public class V1beta1TrainingPortalSpec {
    * Get portal
    * @return portal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortal getPortal() {
@@ -108,7 +108,7 @@ public class V1beta1TrainingPortalSpec {
    * Get system
    * @return system
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecSystem getSystem() {
@@ -139,7 +139,7 @@ public class V1beta1TrainingPortalSpec {
    * Get workshops
    * @return workshops
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1TrainingPortalSpecWorkshops> getWorkshops() {

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionApplicationsFiles
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionApplicationsFiles {
   public static final String SERIALIZED_NAME_DIRECTORY = "directory";
   @SerializedName(SERIALIZED_NAME_DIRECTORY)
@@ -48,7 +48,7 @@ public class V1beta1WorkshopSpecSessionApplicationsFiles {
    * Get directory
    * @return directory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getDirectory() {

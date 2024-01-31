@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * V1beta1SystemProfileSpecDockerd
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1SystemProfileSpecDockerd {
   public static final String SERIALIZED_NAME_MIRROR = "mirror";
   @SerializedName(SERIALIZED_NAME_MIRROR)
@@ -57,7 +57,7 @@ public class V1beta1SystemProfileSpecDockerd {
    * Get mirror
    * @return mirror
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecDockerdMirror getMirror() {
@@ -80,7 +80,7 @@ public class V1beta1SystemProfileSpecDockerd {
    * Get mtu
    * @return mtu
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getMtu() {
@@ -103,7 +103,7 @@ public class V1beta1SystemProfileSpecDockerd {
    * Get privileged
    * @return privileged
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Boolean getPrivileged() {
@@ -126,7 +126,7 @@ public class V1beta1SystemProfileSpecDockerd {
    * Get rootless
    * @return rootless
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Boolean getRootless() {

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1TrainingPortalSpecPortalCredentialsAdmin
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpecPortalCredentialsAdmin {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -48,7 +48,7 @@ public class V1beta1TrainingPortalSpecPortalCredentialsAdmin {
    * Get password
    * @return password
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getPassword() {
@@ -71,7 +71,7 @@ public class V1beta1TrainingPortalSpecPortalCredentialsAdmin {
    * Get username
    * @return username
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getUsername() {

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * V1beta1WorkshopSpecSessionIngresses
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionIngresses {
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
@@ -71,7 +71,7 @@ public class V1beta1WorkshopSpecSessionIngresses {
    * Get headers
    * @return headers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1TrainingPortalSpecEnv> getHeaders() {
@@ -94,7 +94,7 @@ public class V1beta1WorkshopSpecSessionIngresses {
    * Get host
    * @return host
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getHost() {
@@ -139,7 +139,7 @@ public class V1beta1WorkshopSpecSessionIngresses {
    * Get port
    * @return port
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getPort() {
@@ -162,7 +162,7 @@ public class V1beta1WorkshopSpecSessionIngresses {
    * Get protocol
    * @return protocol
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getProtocol() {

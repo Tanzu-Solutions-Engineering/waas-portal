@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionResources
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionResources {
   public static final String SERIALIZED_NAME_MEMORY = "memory";
   @SerializedName(SERIALIZED_NAME_MEMORY)
@@ -48,7 +48,7 @@ public class V1beta1WorkshopSpecSessionResources {
    * Get memory
    * @return memory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getMemory() {
@@ -71,7 +71,7 @@ public class V1beta1WorkshopSpecSessionResources {
    * Get storage
    * @return storage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getStorage() {

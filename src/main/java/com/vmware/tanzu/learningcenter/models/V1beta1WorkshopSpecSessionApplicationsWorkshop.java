@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionApplicationsWorkshop
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionApplicationsWorkshop {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -48,7 +48,7 @@ public class V1beta1WorkshopSpecSessionApplicationsWorkshop {
    * Get enabled
    * @return enabled
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Boolean getEnabled() {
@@ -71,7 +71,7 @@ public class V1beta1WorkshopSpecSessionApplicationsWorkshop {
    * Get url
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getUrl() {

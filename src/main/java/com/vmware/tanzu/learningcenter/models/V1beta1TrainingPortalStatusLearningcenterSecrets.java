@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * V1beta1TrainingPortalStatusLearningcenterSecrets
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalStatusLearningcenterSecrets {
   public static final String SERIALIZED_NAME_INGRESS = "ingress";
   @SerializedName(SERIALIZED_NAME_INGRESS)
@@ -58,7 +58,7 @@ public class V1beta1TrainingPortalStatusLearningcenterSecrets {
    * Get ingress
    * @return ingress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<String> getIngress() {
@@ -89,7 +89,7 @@ public class V1beta1TrainingPortalStatusLearningcenterSecrets {
    * Get registry
    * @return registry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<String> getRegistry() {

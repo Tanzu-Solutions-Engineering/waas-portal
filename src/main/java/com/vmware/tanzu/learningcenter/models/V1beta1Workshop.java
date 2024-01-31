@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * V1beta1Workshop
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1Workshop implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -62,7 +62,7 @@ public class V1beta1Workshop implements io.kubernetes.client.common.KubernetesOb
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
 
   public String getApiVersion() {
@@ -85,7 +85,7 @@ public class V1beta1Workshop implements io.kubernetes.client.common.KubernetesOb
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
 
   public String getKind() {
@@ -108,7 +108,7 @@ public class V1beta1Workshop implements io.kubernetes.client.common.KubernetesOb
    * Get metadata
    * @return metadata
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1ObjectMeta getMetadata() {
@@ -131,7 +131,7 @@ public class V1beta1Workshop implements io.kubernetes.client.common.KubernetesOb
    * Get spec
    * @return spec
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpec getSpec() {
@@ -154,7 +154,7 @@ public class V1beta1Workshop implements io.kubernetes.client.common.KubernetesOb
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Object getStatus() {

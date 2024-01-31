@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * V1beta1SystemProfileSpecPortal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1SystemProfileSpecPortal {
   public static final String SERIALIZED_NAME_CLIENTS = "clients";
   @SerializedName(SERIALIZED_NAME_CLIENTS)
@@ -54,7 +54,7 @@ public class V1beta1SystemProfileSpecPortal {
    * Get clients
    * @return clients
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalClients getClients() {
@@ -77,7 +77,7 @@ public class V1beta1SystemProfileSpecPortal {
    * Get credentials
    * @return credentials
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalCredentials getCredentials() {
@@ -100,7 +100,7 @@ public class V1beta1SystemProfileSpecPortal {
    * Get image
    * @return image
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getImage() {

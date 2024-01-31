@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionApplications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionApplications {
   public static final String SERIALIZED_NAME_CONSOLE = "console";
   @SerializedName(SERIALIZED_NAME_CONSOLE)
@@ -86,7 +86,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get console
    * @return console
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsConsole getConsole() {
@@ -109,7 +109,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get docker
    * @return docker
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsDocker getDocker() {
@@ -132,7 +132,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get editor
    * @return editor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsEditor getEditor() {
@@ -155,7 +155,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get examiner
    * @return examiner
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsEditor getExaminer() {
@@ -178,7 +178,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get files
    * @return files
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsFiles getFiles() {
@@ -201,7 +201,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get registry
    * @return registry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsDocker getRegistry() {
@@ -224,7 +224,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get slides
    * @return slides
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsEditor getSlides() {
@@ -247,7 +247,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get terminal
    * @return terminal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsTerminal getTerminal() {
@@ -270,7 +270,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get webdav
    * @return webdav
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsEditor getWebdav() {
@@ -293,7 +293,7 @@ public class V1beta1WorkshopSpecSessionApplications {
    * Get workshop
    * @return workshop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionApplicationsWorkshop getWorkshop() {

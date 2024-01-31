@@ -91,6 +91,34 @@ public class TrainingPortalServiceTests {
                 )
             )
         );
+        wireMockServer.stubFor(
+            get(urlMatching("/apis/")).atPriority(5)
+            .willReturn(aResponse()
+                .withBody(
+                    """
+                    {
+                        "kind": "APIGroupList",
+                        "apiVersion": "v1",
+                        "groups": [
+                            {
+                                "name": "learningcenter.tanzu.vmware.com",
+                                "versions": [
+                                  {
+                                    "groupVersion": "learningcenter.tanzu.vmware.com/v1beta1",
+                                    "version": "v1beta1"
+                                  }
+                                ],
+                                "preferredVersion": {
+                                  "groupVersion": "learningcenter.tanzu.vmware.com/v1beta1",
+                                  "version": "v1beta1"
+                                }
+                            }
+                        ]
+                    }
+                    """
+                )
+            )
+        );
         wireMockServer.start();
         client = new ClientBuilder().setBasePath("http://localhost:8090").build();
     }
@@ -102,7 +130,8 @@ public class TrainingPortalServiceTests {
 
     @Test
     public void returnsEmptyArray() throws Exception {
-        TrainingPortalService portalService = new TrainingPortalService(client, conversionService);
+        EducatesApiService apiService = new EducatesApiService(client);
+        TrainingPortalService portalService = new TrainingPortalService(apiService, conversionService);
 
         TrainingPortal portals[] = portalService.getTrainingPortalsForUser("test@user.com");
         assertThat(portals, is(notNullValue()));
@@ -112,7 +141,8 @@ public class TrainingPortalServiceTests {
 
     @Test
     public void returnsTrainingPortal() throws Exception {
-        TrainingPortalService portalService = new TrainingPortalService(client, conversionService);
+        EducatesApiService apiService = new EducatesApiService(client);
+        TrainingPortalService portalService = new TrainingPortalService(apiService, conversionService);
 
         TrainingPortal portals[] = portalService.getTrainingPortalsForUser("cdelashmutt@vmware.com");
         assertThat(portals, is(notNullValue()));

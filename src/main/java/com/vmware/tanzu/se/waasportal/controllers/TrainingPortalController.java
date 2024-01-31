@@ -76,6 +76,7 @@ public class TrainingPortalController {
         model.addAttribute("zoneIds", zoneIds);
 
         model.addAttribute("workshops", workshopService.getAvailableWorkshops());
+        model.addAttribute("currentTimeMillis", System.currentTimeMillis());
         return "trainingPortal/new";
     }
 
@@ -103,7 +104,7 @@ public class TrainingPortalController {
             .workshops(workshopArr)
             .build()
         );
-        return String.format("redirect:/trainingportals");
+        return "redirect:/trainingportals".formatted();
     }
 
     @DeleteMapping("/{name}")

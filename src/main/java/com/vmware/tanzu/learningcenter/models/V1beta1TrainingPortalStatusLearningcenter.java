@@ -30,7 +30,7 @@ import java.io.IOException;
 /**
  * V1beta1TrainingPortalStatusLearningcenter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalStatusLearningcenter {
   public static final String SERIALIZED_NAME_CLIENTS = "clients";
   @SerializedName(SERIALIZED_NAME_CLIENTS)
@@ -67,7 +67,7 @@ public class V1beta1TrainingPortalStatusLearningcenter {
    * Get clients
    * @return clients
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalStatusLearningcenterClients getClients() {
@@ -90,7 +90,7 @@ public class V1beta1TrainingPortalStatusLearningcenter {
    * Get credentials
    * @return credentials
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalStatusLearningcenterCredentials getCredentials() {
@@ -113,7 +113,7 @@ public class V1beta1TrainingPortalStatusLearningcenter {
    * Get namespace
    * @return namespace
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getNamespace() {
@@ -158,7 +158,7 @@ public class V1beta1TrainingPortalStatusLearningcenter {
    * Get secrets
    * @return secrets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalStatusLearningcenterSecrets getSecrets() {
@@ -181,7 +181,7 @@ public class V1beta1TrainingPortalStatusLearningcenter {
    * Get url
    * @return url
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getUrl() {

@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionNamespacesSecondary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionNamespacesSecondary {
   public static final String SERIALIZED_NAME_BUDGET = "budget";
   @SerializedName(SERIALIZED_NAME_BUDGET)
@@ -62,7 +62,7 @@ public class V1beta1WorkshopSpecSessionNamespacesSecondary {
    * Get budget
    * @return budget
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getBudget() {
@@ -85,7 +85,7 @@ public class V1beta1WorkshopSpecSessionNamespacesSecondary {
    * Get limits
    * @return limits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionNamespacesLimits getLimits() {
@@ -130,7 +130,7 @@ public class V1beta1WorkshopSpecSessionNamespacesSecondary {
    * Get role
    * @return role
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getRole() {
@@ -153,7 +153,7 @@ public class V1beta1WorkshopSpecSessionNamespacesSecondary {
    * Get security
    * @return security
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecSessionNamespacesSecurity getSecurity() {

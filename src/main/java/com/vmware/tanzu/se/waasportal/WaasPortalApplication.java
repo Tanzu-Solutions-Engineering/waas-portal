@@ -3,8 +3,6 @@ package com.vmware.tanzu.se.waasportal;
 import java.io.IOException;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
-import org.springframework.boot.actuate.trace.http.InMemoryHttpTraceRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -24,8 +22,4 @@ public class WaasPortalApplication {
 		return ClientBuilder.defaultClient();
 	}
 
-	@Bean
-	public HttpTraceRepository inMemoryHTTPTraceRepo() {
-		return new InMemoryHttpTraceRepository();
-	}
 }

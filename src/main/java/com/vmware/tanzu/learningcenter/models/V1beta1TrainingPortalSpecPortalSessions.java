@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1TrainingPortalSpecPortalSessions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpecPortalSessions {
   public static final String SERIALIZED_NAME_ANONYMOUS = "anonymous";
   @SerializedName(SERIALIZED_NAME_ANONYMOUS)
@@ -52,7 +52,7 @@ public class V1beta1TrainingPortalSpecPortalSessions {
    * Get anonymous
    * @return anonymous
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getAnonymous() {
@@ -75,7 +75,7 @@ public class V1beta1TrainingPortalSpecPortalSessions {
    * Get maximum
    * @return maximum
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getMaximum() {
@@ -98,7 +98,7 @@ public class V1beta1TrainingPortalSpecPortalSessions {
    * Get registered
    * @return registered
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getRegistered() {

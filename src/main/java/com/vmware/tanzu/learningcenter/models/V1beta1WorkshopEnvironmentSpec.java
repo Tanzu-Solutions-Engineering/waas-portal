@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopEnvironmentSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopEnvironmentSpec {
   public static final String SERIALIZED_NAME_ANALYTICS = "analytics";
   @SerializedName(SERIALIZED_NAME_ANALYTICS)
@@ -70,7 +70,7 @@ public class V1beta1WorkshopEnvironmentSpec {
    * Get analytics
    * @return analytics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSessionSpecAnalytics getAnalytics() {
@@ -93,7 +93,7 @@ public class V1beta1WorkshopEnvironmentSpec {
    * Get environment
    * @return environment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSpecEnvironment getEnvironment() {
@@ -116,7 +116,7 @@ public class V1beta1WorkshopEnvironmentSpec {
    * Get request
    * @return request
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopEnvironmentSpecRequest getRequest() {
@@ -139,7 +139,7 @@ public class V1beta1WorkshopEnvironmentSpec {
    * Get session
    * @return session
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopEnvironmentSpecSession getSession() {
@@ -162,7 +162,7 @@ public class V1beta1WorkshopEnvironmentSpec {
    * Get system
    * @return system
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecSystem getSystem() {

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * V1beta1TrainingPortalSpecWorkshops
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpecWorkshops {
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
@@ -71,7 +71,7 @@ public class V1beta1TrainingPortalSpecWorkshops {
    * Get capacity
    * @return capacity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getCapacity() {
@@ -102,7 +102,7 @@ public class V1beta1TrainingPortalSpecWorkshops {
    * Get env
    * @return env
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1TrainingPortalSpecEnv> getEnv() {
@@ -125,7 +125,7 @@ public class V1beta1TrainingPortalSpecWorkshops {
    * Get expires
    * @return expires
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getExpires() {
@@ -148,7 +148,7 @@ public class V1beta1TrainingPortalSpecWorkshops {
    * Get initial
    * @return initial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getInitial() {
@@ -193,7 +193,7 @@ public class V1beta1TrainingPortalSpecWorkshops {
    * Get orphaned
    * @return orphaned
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getOrphaned() {
@@ -216,7 +216,7 @@ public class V1beta1TrainingPortalSpecWorkshops {
    * Get reserved
    * @return reserved
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getReserved() {

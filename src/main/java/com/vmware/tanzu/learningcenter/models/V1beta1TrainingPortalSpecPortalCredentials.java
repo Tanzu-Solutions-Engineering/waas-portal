@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * V1beta1TrainingPortalSpecPortalCredentials
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpecPortalCredentials {
   public static final String SERIALIZED_NAME_ADMIN = "admin";
   @SerializedName(SERIALIZED_NAME_ADMIN)
@@ -49,7 +49,7 @@ public class V1beta1TrainingPortalSpecPortalCredentials {
    * Get admin
    * @return admin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalCredentialsAdmin getAdmin() {
@@ -72,7 +72,7 @@ public class V1beta1TrainingPortalSpecPortalCredentials {
    * Get robot
    * @return robot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalCredentialsAdmin getRobot() {

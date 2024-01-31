@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionNamespacesLimitsDefault
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionNamespacesLimitsDefault {
   public static final String SERIALIZED_NAME_CPU = "cpu";
   @SerializedName(SERIALIZED_NAME_CPU)
@@ -48,7 +48,7 @@ public class V1beta1WorkshopSpecSessionNamespacesLimitsDefault {
    * Get cpu
    * @return cpu
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getCpu() {
@@ -71,7 +71,7 @@ public class V1beta1WorkshopSpecSessionNamespacesLimitsDefault {
    * Get memory
    * @return memory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getMemory() {

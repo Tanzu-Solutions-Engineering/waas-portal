@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1SystemProfileSpecThemeDashboard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1SystemProfileSpecThemeDashboard {
   public static final String SERIALIZED_NAME_SCRIPT = "script";
   @SerializedName(SERIALIZED_NAME_SCRIPT)
@@ -48,7 +48,7 @@ public class V1beta1SystemProfileSpecThemeDashboard {
    * Get script
    * @return script
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getScript() {
@@ -71,7 +71,7 @@ public class V1beta1SystemProfileSpecThemeDashboard {
    * Get style
    * @return style
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getStyle() {

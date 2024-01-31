@@ -32,7 +32,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSessionSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSessionSpec {
   public static final String SERIALIZED_NAME_ANALYTICS = "analytics";
   @SerializedName(SERIALIZED_NAME_ANALYTICS)
@@ -65,7 +65,7 @@ public class V1beta1WorkshopSessionSpec {
    * Get analytics
    * @return analytics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSessionSpecAnalytics getAnalytics() {
@@ -110,7 +110,7 @@ public class V1beta1WorkshopSessionSpec {
    * Get request
    * @return request
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSessionSpecRequest getRequest() {
@@ -133,7 +133,7 @@ public class V1beta1WorkshopSessionSpec {
    * Get session
    * @return session
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSessionSpecSession getSession() {
@@ -156,7 +156,7 @@ public class V1beta1WorkshopSessionSpec {
    * Get system
    * @return system
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecSystem getSystem() {

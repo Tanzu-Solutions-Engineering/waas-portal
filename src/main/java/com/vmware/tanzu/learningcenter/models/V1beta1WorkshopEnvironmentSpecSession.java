@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * V1beta1WorkshopEnvironmentSpecSession
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopEnvironmentSpecSession {
   public static final String SERIALIZED_NAME_ENV = "env";
   @SerializedName(SERIALIZED_NAME_ENV)
@@ -68,7 +68,7 @@ public class V1beta1WorkshopEnvironmentSpecSession {
    * Get env
    * @return env
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<V1beta1TrainingPortalSpecEnv> getEnv() {
@@ -91,7 +91,7 @@ public class V1beta1WorkshopEnvironmentSpecSession {
    * Get ingress
    * @return ingress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecIngress getIngress() {
@@ -114,7 +114,7 @@ public class V1beta1WorkshopEnvironmentSpecSession {
    * Get password
    * @return password
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getPassword() {
@@ -137,7 +137,7 @@ public class V1beta1WorkshopEnvironmentSpecSession {
    * Get username
    * @return username
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getUsername() {

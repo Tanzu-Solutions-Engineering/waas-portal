@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * V1beta1SystemProfileSpecNetwork
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1SystemProfileSpecNetwork {
   public static final String SERIALIZED_NAME_BLOCK_C_I_D_RS = "blockCIDRs";
   @SerializedName(SERIALIZED_NAME_BLOCK_C_I_D_RS)
@@ -54,7 +54,7 @@ public class V1beta1SystemProfileSpecNetwork {
    * Get blockCIDRs
    * @return blockCIDRs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public List<String> getBlockCIDRs() {

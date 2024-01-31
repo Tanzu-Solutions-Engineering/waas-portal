@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSpecSessionApplicationsDocker
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSpecSessionApplicationsDocker {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -74,7 +74,7 @@ public class V1beta1WorkshopSpecSessionApplicationsDocker {
    * Get memory
    * @return memory
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getMemory() {
@@ -97,7 +97,7 @@ public class V1beta1WorkshopSpecSessionApplicationsDocker {
    * Get storage
    * @return storage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getStorage() {

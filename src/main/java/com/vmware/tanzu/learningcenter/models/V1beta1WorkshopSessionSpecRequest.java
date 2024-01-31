@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * V1beta1WorkshopSessionSpecRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1WorkshopSessionSpecRequest {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -60,7 +60,7 @@ public class V1beta1WorkshopSessionSpecRequest {
    * Get apiVersion
    * @return apiVersion
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getApiVersion() {
@@ -83,7 +83,7 @@ public class V1beta1WorkshopSessionSpecRequest {
    * Get kind
    * @return kind
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getKind() {
@@ -106,7 +106,7 @@ public class V1beta1WorkshopSessionSpecRequest {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getName() {
@@ -129,7 +129,7 @@ public class V1beta1WorkshopSessionSpecRequest {
    * Get namespace
    * @return namespace
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getNamespace() {
@@ -152,7 +152,7 @@ public class V1beta1WorkshopSessionSpecRequest {
    * Get uid
    * @return uid
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getUid() {

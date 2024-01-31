@@ -37,7 +37,7 @@ import java.io.IOException;
 /**
  * V1beta1SystemProfileSpec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1SystemProfileSpec {
   public static final String SERIALIZED_NAME_ANALYTICS = "analytics";
   @SerializedName(SERIALIZED_NAME_ANALYTICS)
@@ -90,7 +90,7 @@ public class V1beta1SystemProfileSpec {
    * Get analytics
    * @return analytics
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1WorkshopSessionSpecAnalytics getAnalytics() {
@@ -113,7 +113,7 @@ public class V1beta1SystemProfileSpec {
    * Get dockerd
    * @return dockerd
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecDockerd getDockerd() {
@@ -136,7 +136,7 @@ public class V1beta1SystemProfileSpec {
    * Get environment
    * @return environment
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecEnvironment getEnvironment() {
@@ -159,7 +159,7 @@ public class V1beta1SystemProfileSpec {
    * Get ingress
    * @return ingress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecIngress getIngress() {
@@ -182,7 +182,7 @@ public class V1beta1SystemProfileSpec {
    * Get network
    * @return network
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecNetwork getNetwork() {
@@ -205,7 +205,7 @@ public class V1beta1SystemProfileSpec {
    * Get portal
    * @return portal
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecPortal getPortal() {
@@ -228,7 +228,7 @@ public class V1beta1SystemProfileSpec {
    * Get registry
    * @return registry
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecRegistry getRegistry() {
@@ -251,7 +251,7 @@ public class V1beta1SystemProfileSpec {
    * Get storage
    * @return storage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecStorage getStorage() {
@@ -274,7 +274,7 @@ public class V1beta1SystemProfileSpec {
    * Get theme
    * @return theme
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecTheme getTheme() {
@@ -297,7 +297,7 @@ public class V1beta1SystemProfileSpec {
    * Get workshop
    * @return workshop
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1SystemProfileSpecWorkshop getWorkshop() {

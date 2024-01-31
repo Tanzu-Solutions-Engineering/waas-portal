@@ -35,7 +35,7 @@ import java.io.IOException;
 /**
  * V1beta1TrainingPortalSpecPortal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-07T20:08:06.732Z[Etc/UTC]")
 public class V1beta1TrainingPortalSpecPortal {
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
   @SerializedName(SERIALIZED_NAME_CAPACITY)
@@ -120,7 +120,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get capacity
    * @return capacity
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getCapacity() {
@@ -143,7 +143,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get catalog
    * @return catalog
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalCatalog getCatalog() {
@@ -166,7 +166,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get clients
    * @return clients
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalClients getClients() {
@@ -189,7 +189,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get credentials
    * @return credentials
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalCredentials getCredentials() {
@@ -212,7 +212,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get expires
    * @return expires
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getExpires() {
@@ -235,7 +235,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get image
    * @return image
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getImage() {
@@ -258,7 +258,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get index
    * @return index
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getIndex() {
@@ -281,7 +281,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get ingress
    * @return ingress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalIngress getIngress() {
@@ -304,7 +304,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get initial
    * @return initial
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getInitial() {
@@ -327,7 +327,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get logo
    * @return logo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getLogo() {
@@ -350,7 +350,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get orphaned
    * @return orphaned
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getOrphaned() {
@@ -373,7 +373,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get password
    * @return password
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getPassword() {
@@ -396,7 +396,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get registration
    * @return registration
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalRegistration getRegistration() {
@@ -419,7 +419,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get reserved
    * @return reserved
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public Integer getReserved() {
@@ -442,7 +442,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get sessions
    * @return sessions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalSessions getSessions() {
@@ -465,7 +465,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get theme
    * @return theme
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalTheme getTheme() {
@@ -488,7 +488,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public String getTitle() {
@@ -511,7 +511,7 @@ public class V1beta1TrainingPortalSpecPortal {
    * Get updates
    * @return updates
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public V1beta1TrainingPortalSpecPortalUpdates getUpdates() {
