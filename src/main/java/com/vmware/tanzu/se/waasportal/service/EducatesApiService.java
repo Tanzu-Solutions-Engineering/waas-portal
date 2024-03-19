@@ -42,10 +42,10 @@ public class EducatesApiService {
       Set<String> groupVersionSet = apiVersions.getGroups().stream()
           .map(apiVersionItem -> apiVersionItem.getPreferredVersion().getGroupVersion())
           .collect(Collectors.toSet());
-      if (groupVersionSet.contains(LEARNING_CENTER_GV)) {
-        this.envType = EnvType.LEARNING_CENTER;
-      } else if (groupVersionSet.contains(EDUCATES_GV)) {
+      if (groupVersionSet.contains(EDUCATES_GV)) {
         this.envType = EnvType.EDUCATES;
+      } else if (groupVersionSet.contains(LEARNING_CENTER_GV)) {
+        this.envType = EnvType.LEARNING_CENTER;
       } else {
         throw new RuntimeException(
             "Cannot find expected API Resources for Learning Center or Educates in this cluster");
