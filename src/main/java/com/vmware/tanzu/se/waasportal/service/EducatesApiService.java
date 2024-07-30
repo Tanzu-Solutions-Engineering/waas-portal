@@ -35,7 +35,7 @@ public class EducatesApiService {
       ApisApi api = new ApisApi(apiClient);
       V1APIGroupList apiVersions = new V1APIGroupList();
       try {
-        apiVersions = api.getAPIVersions();
+        apiVersions = api.getAPIVersions().execute();
       } catch (ApiException e) {
         throw new RuntimeException(e);
       }
